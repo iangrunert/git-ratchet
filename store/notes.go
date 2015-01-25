@@ -3,6 +3,7 @@ package store
 import (
 	"encoding/csv"
 	"encoding/json"
+	"bufio"
 	"errors"
 	log "github.com/spf13/jwalterweatherman"
 	"io"
@@ -30,10 +31,14 @@ func (cm *CommitMeasure) String() string {
 	return cm.CommitHash
 }
 
-func CommitMeasureCommand() *exec.Cmd {
-	gitlog := exec.Command("git", "log", "--show-notes=git-ratchet", `--pretty=format:'%H,%an <%ae>,%at,"%N",'`)
+func GitLog(ref string, commitrange string, format string) *exec.Cmd {
+	gitlog := exec.Command("git", "log", "--show-notes=" + ref, `--pretty=format:'` + format + `'`, commitrange)
 	log.INFO.Println(strings.Join(gitlog.Args, " "))
 	return gitlog
+}
+
+func CommitMeasureCommand() *exec.Cmd {
+	return GitLog("git-ratchet", "HEAD", `%H,%an <%ae>,%at,"%N",`)
 }
 
 func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
@@ -73,9 +78,10 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 			if err != nil {
 				return CommitMeasure{}, err
 			}
+			
 
 			if len(measures) > 0 {
-				return CommitMeasure{CommitHash: record[0],
+				return CommitMeasure{CommitHash: strings.Trim(record[0], "'"),
 					Committer: record[1],
 					Timestamp: time.Unix(int64(timestamp), 0),
 					Measures:  measures}, nil
@@ -176,7 +182,7 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 	return measures, nil
 }
 
-func CompareMeasures(storedm []Measure, computedm []Measure) error {
+func CompareMeasures(hash string, storedm []Measure, computedm []Measure) error {
 	if len(computedm) == 0 {
 		return errors.New("No measures passed to git-ratchet to compare against.")
 	}
@@ -185,7 +191,7 @@ func CompareMeasures(storedm []Measure, computedm []Measure) error {
 		return errors.New("No stored measures to compare against.")
 	}
 
-	failing := false
+	failing := make([]string, 0)
 
 	i := 0
 	j := 0
@@ -196,7 +202,7 @@ func CompareMeasures(storedm []Measure, computedm []Measure) error {
 		log.INFO.Printf("Checking meaures: %s %s", stored.Name, computed.Name)
 		if stored.Name < computed.Name {
 			log.ERROR.Printf("Missing computed value for stored measure: %s", stored.Name)
-			failing = true
+			failing = append(failing, stored.Name)
 			i++
 		} else if computed.Name < stored.Name {
 			log.WARN.Printf("New measure found: %s", computed.Name)
@@ -205,7 +211,7 @@ func CompareMeasures(storedm []Measure, computedm []Measure) error {
 			// Compare the value
 			if computed.Value > stored.Value {
 				log.ERROR.Printf("Measure rising: %s", computed.Name)
-				failing = true
+				failing = append(failing, computed.Name)
 			}
 			i++
 			j++
@@ -215,7 +221,7 @@ func CompareMeasures(storedm []Measure, computedm []Measure) error {
 	for i < len(storedm) {
 		stored := storedm[i]
 		log.ERROR.Printf("Missing computed value for stored measure: %s", stored.Name)
-		failing = true
+		failing = append(failing, stored.Name)
 		i++
 	}
 
@@ -225,8 +231,42 @@ func CompareMeasures(storedm []Measure, computedm []Measure) error {
 		j++
 	}
 
-	if failing {
-		return errors.New("One or more metrics currently failing.")
+	if len(failing) > 0 {
+		log.INFO.Printf("Checking for excuses")
+
+		exclusions, err := GetExclusions(hash)
+
+		if err != nil {
+			return err
+		}
+	
+		log.INFO.Printf("Total excuses %s", exclusions)
+	
+		i = 0
+		j = 0
+	
+		missingexclusion := false
+	
+		for i < len(exclusions) && j < len(failing) {
+			ex := exclusions[i]
+			fail := failing[j]
+			log.INFO.Printf("Checking excuses: %s %s", ex, fail)
+			if ex < fail {
+				log.WARN.Printf("Exclusion found for not failing measure: %s", ex)
+				i++
+			} else if fail < ex {
+				log.ERROR.Printf("No exclusion for failing measure: %s", fail)
+				missingexclusion = true
+				j++
+			} else {
+				i++
+				j++
+			}		
+		}
+		
+		if missingexclusion || j < len(failing) {
+			return errors.New("One or more metrics currently failing.")
+		}
 	}
 
 	return nil
@@ -235,7 +275,68 @@ func CompareMeasures(storedm []Measure, computedm []Measure) error {
 type Exclusion struct {
 	Committer string
 	Excuse string
-	Measure string
+	Measure []string
+}
+
+func GetExclusions(hash string) ([]string, error) {
+	gitlog := GitLog("git-ratchet-excuse", hash + "^1..HEAD", "%N")
+	
+	stdout, err := gitlog.StdoutPipe()
+	if err != nil {
+		return []string{}, err
+	}
+	
+	scanner := bufio.NewScanner(stdout)
+	
+	err = gitlog.Start()
+	if err != nil {
+		return []string{}, err
+	}
+	
+	exclusions := make([]string, 0)
+	
+	for scanner.Scan() {
+		record := strings.Trim(scanner.Text(), "'")
+		
+		if len(record) == 0 {
+			break
+		}
+		
+		measures, err := ParseExclusion(record)
+		
+		if err != nil && err != io.EOF {
+			return []string{}, err
+		}
+		
+		exclusions = append(exclusions, measures...)
+	}
+	
+	if err = scanner.Err(); err != nil {
+		return []string{}, err
+	}
+	
+	err = gitlog.Wait()
+	
+	if err != nil {
+		return []string{}, err
+	}
+	
+	sort.Strings(exclusions)
+	
+	return exclusions, nil
+}
+
+func ParseExclusion(ex string) ([]string, error){
+	log.INFO.Printf("Exclusion %s", ex)
+
+	var m Exclusion
+	err := json.Unmarshal([]byte(strings.Trim(ex, "'")), &m)
+	
+	if err != nil {
+		return []string{}, err
+	}
+	
+	return m.Measure, nil
 }
 
 func WriteExclusion(ex Exclusion) error {
@@ -250,7 +351,7 @@ func WriteExclusion(ex Exclusion) error {
 		return nil
 	}
 
-	return WriteNotes(writef, "git-ratchet-exclusion")
+	return WriteNotes(writef, "git-ratchet-excuse")
 }
 
 func GetCommitterName() (string, error) {

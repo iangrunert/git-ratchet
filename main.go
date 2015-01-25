@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -63,7 +64,7 @@ The most recent stored values are found by walking up the commit graph and looki
 			} else {
 				log.INFO.Println(commitmeasure.Measures)
 				log.INFO.Println("Checking passed measure against stored value")
-				err = store.CompareMeasures(commitmeasure.Measures, passedMeasures)
+				err = store.CompareMeasures(commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures)
 				if err != nil {
 					log.FATAL.Println(err)
 					os.Exit(50)
@@ -110,7 +111,7 @@ The most recent stored values are found by walking up the commit graph and looki
 				os.Exit(10)
 			}
 			
-			exclusion := store.Exclusion{Committer: name, Excuse: excuse, Measure: measure}
+			exclusion := store.Exclusion{Committer: name, Excuse: excuse, Measure: strings.Split(measure, ",")}
 
 			err = store.WriteExclusion(exclusion)
 
@@ -122,7 +123,7 @@ The most recent stored values are found by walking up the commit graph and looki
 		},
 	}
 
-	excuseCmd.Flags().StringVarP(&measure, "name", "n", "", "name of the measure to excuse")
+	excuseCmd.Flags().StringVarP(&measure, "name", "n", "", "names of the measures to excuse, comma separated list")
 	excuseCmd.Flags().StringVarP(&excuse, "excuse", "e", "", "excuse for the measure rising")
 
 	var dumpCmd = &cobra.Command{
