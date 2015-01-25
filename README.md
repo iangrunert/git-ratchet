@@ -15,7 +15,7 @@ Run ```git ratchet check -w``` on a CI server, on your master branch.
 Feed in input that looks like this:
 
 ```
-_measure_,_value_[,_rising_]
+_measure_,_value_
 ...
 ```
 
@@ -38,10 +38,6 @@ _timestamp_,_measure_,_value_
 ## It's 2am and I need to release a hotfix to PROD. How do I ignore the increase?
 
 Run ```git ratchet excuse _measure_``` locally to write an excuse. This will allow the build to pass.
-
-## Can I get a leaderboard?
-
-Run ```git ratchet leaderboard``` to find which developer's contribute to a reduction.
 
 ## Where is the data stored?
 

@@ -3,6 +3,8 @@ package main
 import (
 	   "github.com/spf13/cobra"
 	   log "github.com/spf13/jwalterweatherman"
+	   "encoding/csv"
+	   "strconv"
 	   "io"
 	   "./store"
 	   "os"
@@ -106,21 +108,46 @@ The most recent stored values are found by walking up the commit graph and looki
 		Short: "Dump a CSV file containing the measurement data over time.",
 		Long:  `Dump a CSV file containing the measurement data over time.`,
 		Run: func(cmd *cobra.Command, args []string) {
+			 log.INFO.Println("Reading measures stored in git")
+			 gitlog := store.CommitMeasureCommand()
 
-		},
-	}
+			 readStoredMeasure, err := store.CommitMeasures(gitlog)
+			 if err != nil {
+			 	log.FATAL.Println(err)
+				os.Exit(20)
+			 }
 
-	var leaderboardCmd = &cobra.Command{
-		Use:   "leaderboard",
-		Short: "Show a sorted leaderboard of which developers contributed to metric decreases.",
-		Long:  `Dump a CSV file containing the measurement data over time.
-If multiple developers have committed between subsequent runs, they'll share the points 50/50.`,
-		Run: func(cmd *cobra.Command, args []string) {
+			 for {
+			 	 cm, err := readStoredMeasure()
 
+			 	 // Empty state of the repository - no stored metrics.
+			 	 if err == io.EOF {
+			 	 	break
+			 	 } else if err != nil {	 	
+				   log.FATAL.Println(err)
+				   os.Exit(40)
+				 }
+				 
+				 out := csv.NewWriter(os.Stdout)
+
+				 for _, measure := range cm.Measures {
+				 	 out.Write([]string{cm.Timestamp.String(), measure.Name, strconv.Itoa(measure.Value)})
+				 }
+				 out.Flush()
+			 }
+
+			 err = gitlog.Wait()
+
+			 if err != nil {
+			 	log.FATAL.Println(err)
+				os.Exit(22)
+			 }
+
+			 log.INFO.Println("Finished reading measures stored in git")
 		},
 	}
 	
 	var rootCmd = &cobra.Command{Use: "git-ratchet"}
-    rootCmd.AddCommand(checkCmd, excuseCmd, dumpCmd, leaderboardCmd)
+    rootCmd.AddCommand(checkCmd, excuseCmd, dumpCmd)
     rootCmd.Execute()
 }
