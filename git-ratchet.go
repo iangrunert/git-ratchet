@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./store"
+	"github.com/iangrunert/git-ratchet/store"
 	"encoding/csv"
 	"github.com/spf13/cobra"
 	log "github.com/spf13/jwalterweatherman"
