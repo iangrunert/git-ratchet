@@ -37,7 +37,7 @@ _timestamp_,_measure_,_value_
 
 ## It's 2am and I need to release a hotfix to PROD. How do I ignore the increase?
 
-Run ```git ratchet excuse _measure_``` locally to write an excuse. This will allow the build to pass.
+Run ```git ratchet excuse -n "_measure_" -e "It's 2am and the servers are on fire."``` locally to write an excuse. This will allow the build to pass.
 
 ## Where is the data stored?
 
