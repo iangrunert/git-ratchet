@@ -2,6 +2,7 @@ package store
 
 import (
 	"encoding/csv"
+	"encoding/json"
 	"errors"
 	log "github.com/spf13/jwalterweatherman"
 	"io"
@@ -83,7 +84,7 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 	}, nil
 }
 
-func PutMeasures(m []Measure) error {
+func WriteNotes(writef func(io.Writer) error, ref string) error {
 	// Create a temporary file
 	notepath := ".git-ratchet-note"
 
@@ -93,7 +94,7 @@ func PutMeasures(m []Measure) error {
 	}
 	defer os.Remove(notepath)
 
-	err = WriteMeasures(m, tempfile)
+	err = writef(tempfile)
 	if err != nil {
 		return err
 	}
@@ -103,11 +104,23 @@ func PutMeasures(m []Measure) error {
 		return err
 	}
 
-	writenotes := exec.Command("git", "notes", "--ref=git-ratchet", "add", "-f", "-F", notepath)
+	writenotes := exec.Command("git", "notes", "--ref=" + ref, "add", "-f", "-F", notepath)
 
 	log.INFO.Println(strings.Join(writenotes.Args, " "))
 
-	return writenotes.Run()
+	return writenotes.Run()	
+}
+
+func PutMeasures(m []Measure) error {
+	writef := func(tempfile io.Writer) error { 
+		err := WriteMeasures(m, tempfile)
+		if err != nil {
+			return err
+		}
+		return nil
+	}
+
+	return WriteNotes(writef, "git-ratchet")
 }
 
 type ByName []Measure
@@ -217,4 +230,38 @@ func CompareMeasures(storedm []Measure, computedm []Measure) error {
 	}
 
 	return nil
+}
+
+type Exclusion struct {
+	Committer string
+	Excuse string
+	Measure string
+}
+
+func WriteExclusion(ex Exclusion) error {
+	writef := func(tempfile io.Writer) error { 
+		b, err := json.Marshal(ex)
+	
+		if err != nil {
+			return err
+		}
+		
+		tempfile.Write(b)
+		return nil
+	}
+
+	return WriteNotes(writef, "git-ratchet-exclusion")
+}
+
+func GetCommitterName() (string, error) {
+	getname := exec.Command("git", "config", "--get", "user.name")
+	
+	name, err := getname.Output()
+
+	if err != nil {
+		log.ERROR.Printf("fucked %s", err)
+		return "", err
+	}
+
+	return strings.Trim(string(name), "\n"), nil
 }

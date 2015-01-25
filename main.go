@@ -94,14 +94,36 @@ The most recent stored values are found by walking up the commit graph and looki
 	checkCmd.Flags().BoolVarP(&write, "write", "w", false, "write values if no increase is detected. only use on your CI server.")
 	checkCmd.Flags().BoolVarP(&verbose, "verbose", "v", false, "logging verbosity.")
 
+	var measure string
+	var excuse string
+
 	var excuseCmd = &cobra.Command{
 		Use:   "excuse",
 		Short: "Write an excuse for a measurement increase, so that the check command will ignore an increase.",
 		Long:  `Write an excuse for a measurement increase. This will allow the check command to pass.`,
 		Run: func(cmd *cobra.Command, args []string) {
+			name, err := store.GetCommitterName()
 
+			if err != nil {
+				log.FATAL.Println("Error when fetching committer name")
+				log.DEBUG.Println(err)
+				os.Exit(10)
+			}
+			
+			exclusion := store.Exclusion{Committer: name, Excuse: excuse, Measure: measure}
+
+			err = store.WriteExclusion(exclusion)
+
+			if err != nil {
+				log.FATAL.Println("Error writing exclusion note.")
+				log.DEBUG.Println(err)
+				os.Exit(20)
+			}
 		},
 	}
+
+	excuseCmd.Flags().StringVarP(&measure, "name", "n", "", "name of the measure to excuse")
+	excuseCmd.Flags().StringVarP(&excuse, "excuse", "e", "", "excuse for the measure rising")
 
 	var dumpCmd = &cobra.Command{
 		Use:   "dump",
