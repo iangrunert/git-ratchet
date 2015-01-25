@@ -114,7 +114,16 @@ func WriteNotes(writef func(io.Writer) error, ref string) error {
 
 	log.INFO.Println(strings.Join(writenotes.Args, " "))
 
-	return writenotes.Run()	
+	err = writenotes.Run()
+	if err != nil {
+		return err
+	}
+	
+	pushnotes := exec.Command("git", "push", "origin", "refs/notes/" + ref)
+
+	log.INFO.Println(strings.Join(pushnotes.Args, " "))
+
+	return pushnotes.Run()
 }
 
 func PutMeasures(m []Measure) error {
