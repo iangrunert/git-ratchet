@@ -1,9 +1,12 @@
 package store
 
 import (
+	   log "github.com/spf13/jwalterweatherman"
 	   "encoding/csv"
 	   "errors"
+	   "fmt"
 	   "io"
+	   "os"
 	   "os/exec"
 	   "strconv"
 	   "strings"
@@ -27,14 +30,20 @@ func (cm *CommitMeasure) String() string {
 	 return cm.CommitHash
 }
 
-func CommitMeasures() (func() (CommitMeasure, error), error) {
-	log := exec.Command(`git`, `log --show-notes=git-ratchet --pretty=format:"%H,%an <%ae>,%at,%N"`)
-	stdout, err := log.StdoutPipe()
+func CommitMeasureCommand() *exec.Cmd {
+	 return exec.Command("git", "log", "--show-notes=git-ratchet", `--pretty=format:'%H,%an <%ae>,%at,"%N",'`)
+}
+
+func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
+	stdout, err := gitlog.StdoutPipe()
 	if err != nil {
 	   return nil, err
 	}
+
 	output := csv.NewReader(stdout)
-	err = log.Start()
+	output.TrailingComma = true
+
+	err = gitlog.Start()
 	if err != nil {
 	   return nil, err
 	}
@@ -47,36 +56,87 @@ func CommitMeasures() (func() (CommitMeasure, error), error) {
 			if err != nil {
 			   return CommitMeasure{}, err
 			}
+
 			// The note needs to be non-empty to contain measures.
 			if len(record[len(record) - 1]) == 0 {
+			   fmt.Println("No note found")
 			   continue
 			}
-			timestamp, err := strconv.Atoi(record[1])
+
+			timestamp, err := strconv.Atoi(strings.Trim(record[2], "\\\""))
 			if err != nil {
 			   return CommitMeasure{}, err
 			}
-			measures, err := ParseMeasures(strings.NewReader(record[3]))
+
+			measures, err := ParseMeasures(strings.NewReader(strings.Trim(record[3], "\\\"")))
 			if err != nil {
 			   return CommitMeasure{}, err
 			}
-			return CommitMeasure{CommitHash: record[0], 
-				   				  Timestamp: time.Unix(int64(timestamp), 0),
-								  Committer: record[2],
-								  Measures: measures}, nil
+
+			if len(measures) > 0 {
+			   return CommitMeasure{CommitHash: record[0], 
+									Committer: record[1],
+				   				  	Timestamp: time.Unix(int64(timestamp), 0),
+								  	Measures: measures}, nil
+			}
 		}
 	}, nil
+}
+
+func PutMeasures(m []Measure) error {
+	 // Create a temporary file
+	 notepath := ".git-ratchet-note"
+	 
+	 tempfile, err := os.Create(notepath)
+	 if err != nil {
+	 	return err
+	 }
+	 defer os.Remove(notepath)
+	 
+	 err = WriteMeasures(m, tempfile)
+	 if err != nil {
+	 	return err
+	 }
+
+	 err = tempfile.Close()
+	 if err != nil {
+	 	return err
+	 }
+	 
+	 writenotes := exec.Command("git", "notes", "--ref=git-ratchet", "add", "-f", "-F", notepath)
+
+	 log.INFO.Println(strings.Join(writenotes.Args, " "))
+
+	 return writenotes.Run()
+}
+
+func WriteMeasures(measures []Measure, w io.Writer) error {
+	 out := csv.NewWriter(w)
+	 for _, m := range measures {
+	 	 err := out.Write([]string{m.Name, strconv.Itoa(m.Value), strconv.FormatBool(m.Rising)})
+		 if err != nil {
+		 	return err
+		 }
+	 }
+	 out.Flush()
+	 return nil
 }
 
 func ParseMeasures(r io.Reader) ([]Measure, error) {
 	 data := csv.NewReader(r)
 	 
-	 measures := make([]Measure, 1)
+	 measures := make([]Measure, 0)
 
 	 for {
 	 	 arr, err := data.Read()
+		 if err == io.EOF {
+		 	break
+		 }
+
 		 if err != nil {
 		 	return nil, err
 		 }
+
 		 if len(arr) < 2 {
 		 	return nil, errors.New("Badly formatted measures")
 		 }
@@ -87,6 +147,6 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 		 measure := Measure{Name: arr[0], Value: value, Rising: (len(arr) > 2)}
 		 measures = append(measures, measure)
 	 }
-	 
+
 	 return measures, nil
 }
