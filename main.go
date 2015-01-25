@@ -59,7 +59,8 @@ The most recent stored values are found by walking up the commit graph and looki
 			 	log.FATAL.Println(err)
 				os.Exit(40)
 			 } else {
-			    log.INFO.Println(measure)
+			    log.INFO.Println("Checking passed measure against stored value")
+			    log.INFO.Println(measure.Measures)
 			 }
 			 
 			 err = gitlog.Wait()

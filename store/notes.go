@@ -134,6 +134,7 @@ func WriteMeasures(measures []Measure, w io.Writer) error {
 
 func ParseMeasures(r io.Reader) ([]Measure, error) {
 	 data := csv.NewReader(r)
+	 data.FieldsPerRecord = -1 // Variable number of fields per record
 	 
 	 measures := make([]Measure, 0)
 
@@ -150,13 +151,25 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 		 if len(arr) < 2 {
 		 	return nil, errors.New("Badly formatted measures")
 		 }
+
 		 value, err := strconv.Atoi(arr[1])
 		 if err != nil {
 		 	return nil, err
 		 }
-		 measure := Measure{Name: arr[0], Value: value, Rising: (len(arr) > 2)}
+		 
+		 rising := false
+		 if len(arr) > 2 {
+		 	rising, err = strconv.ParseBool(arr[2])
+			if err != nil {
+			   rising = false
+			}
+		 }
+		 
+		 measure := Measure{Name: arr[0], Value: value, Rising: rising}
 		 measures = append(measures, measure)
 	 }
+
+	 sort.Sort(ByName(measures))
 
 	 return measures, nil
 }
