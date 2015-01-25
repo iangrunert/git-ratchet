@@ -41,7 +41,7 @@ The most recent stored values are found by walking up the commit graph and looki
 				os.Exit(20)
 			 }
 
-			 measure, err := readStoredMeasure()
+			 commitmeasure, err := readStoredMeasure()
 
 			 // Empty state of the repository - no stored metrics. Let's store one if we can.
 			 if err == io.EOF {
@@ -59,8 +59,23 @@ The most recent stored values are found by walking up the commit graph and looki
 			 	log.FATAL.Println(err)
 				os.Exit(40)
 			 } else {
+			    log.INFO.Println(commitmeasure.Measures)
 			    log.INFO.Println("Checking passed measure against stored value")
-			    log.INFO.Println(measure.Measures)
+				err = store.CompareMeasures(commitmeasure.Measures, passedMeasures)
+				if err != nil {
+				   log.FATAL.Println(err)
+				   os.Exit(50)
+				} else if write {
+				   log.INFO.Println("Writing measure values.")
+				   err = store.PutMeasures(passedMeasures)
+				   if err != nil {
+				   	  log.FATAL.Println(err)
+					  os.Exit(30)
+				   }
+				   log.INFO.Println("Successfully written measures.")
+				} else {
+				   log.INFO.Println("Metrics passing!")
+				}
 			 }
 			 
 			 err = gitlog.Wait()

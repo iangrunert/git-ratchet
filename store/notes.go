@@ -4,7 +4,6 @@ import (
 	   log "github.com/spf13/jwalterweatherman"
 	   "encoding/csv"
 	   "errors"
-	   "fmt"
 	   "io"
 	   "os"
 	   "os/exec"
@@ -17,7 +16,6 @@ import (
 type Measure struct {
 	 Name string
 	 Value int
-	 Rising bool
 }
 
 type CommitMeasure struct {
@@ -62,7 +60,6 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 
 			// The note needs to be non-empty to contain measures.
 			if len(record[len(record) - 1]) == 0 {
-			   fmt.Println("No note found")
 			   continue
 			}
 
@@ -123,7 +120,7 @@ func WriteMeasures(measures []Measure, w io.Writer) error {
 	 out := csv.NewWriter(w)
 	 sort.Sort(ByName(measures))
 	 for _, m := range measures {
-	 	 err := out.Write([]string{m.Name, strconv.Itoa(m.Value), strconv.FormatBool(m.Rising)})
+	 	 err := out.Write([]string{m.Name, strconv.Itoa(m.Value)})
 		 if err != nil {
 		 	return err
 		 }
@@ -157,19 +154,67 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 		 	return nil, err
 		 }
 		 
-		 rising := false
-		 if len(arr) > 2 {
-		 	rising, err = strconv.ParseBool(arr[2])
-			if err != nil {
-			   rising = false
-			}
-		 }
-		 
-		 measure := Measure{Name: arr[0], Value: value, Rising: rising}
+		 measure := Measure{Name: arr[0], Value: value}
 		 measures = append(measures, measure)
 	 }
 
 	 sort.Sort(ByName(measures))
 
 	 return measures, nil
+}
+
+func CompareMeasures(storedm []Measure, computedm []Measure) error {
+	 if len(computedm) == 0 {
+	 	return errors.New("No measures passed to git-ratchet to compare against.")
+	 }
+	 
+	 if len(storedm) == 0 {
+	 	return errors.New("No stored measures to compare against.")
+	 }
+	 
+	 failing := false
+	
+	 i := 0
+	 j := 0
+	 
+	 for i < len(storedm) && j < len(computedm) {
+	 	 stored := storedm[i]
+		 computed := computedm[j]
+		 log.INFO.Printf("Checking meaures: %s %s", stored.Name, computed.Name)
+		 if (stored.Name < computed.Name) {
+		 	log.ERROR.Printf("Missing computed value for stored measure: %s", stored.Name)
+			failing = true
+		 	i++
+		 } else if (computed.Name < stored.Name) {
+		 	log.WARN.Printf("New measure found: %s", computed.Name)
+		    j++
+		 } else {
+		    // Compare the value
+			if computed.Value > stored.Value {
+			   log.ERROR.Printf("Measure rising: %s", computed.Name)
+			   failing = true
+			}
+		    i++
+			j++
+		 }
+	 }
+
+	 for i < len(storedm) {
+	 	 stored := storedm[i]
+		 log.ERROR.Printf("Missing computed value for stored measure: %s", stored.Name)
+		 failing = true
+		 i++
+	 }
+
+	 for j < len(computedm) {
+	 	 computed := computedm[i]
+		 log.WARN.Printf("New measure found: %s", computed.Name)
+		 j++
+	 }
+	 
+	 if failing {
+	 	return errors.New("One or more metrics currently failing.")
+	 }
+
+	 return nil
 }
