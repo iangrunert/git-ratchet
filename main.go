@@ -1,9 +1,15 @@
 package main
 
-import "github.com/spf13/cobra"
+import (
+	   "github.com/spf13/cobra"
+	   "./store"
+	   "log"
+)
 
 func main() {
 	var write bool
+
+	log.SetFlags(0)
 
 	var checkCmd = &cobra.Command{
 		Use:   "check",
@@ -11,7 +17,15 @@ func main() {
 		Long:  `Checks the values passed in against the most recent stored values. 
 The most recent stored values are found by walking up the commit graph and looking at the git-notes stored.`,
 		Run: func(cmd *cobra.Command, args []string) {
-
+			 readMeasure, err := store.CommitMeasures()
+			 if err != nil {
+			 	log.Fatal(err)
+			 }
+			 measure, err := readMeasure()
+			 if err != nil {
+			 	log.Fatal(err)
+			 }
+			 log.Print(measure)
 		},
 	}
 

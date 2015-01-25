@@ -15,7 +15,7 @@ Run ```git ratchet check -w``` on a CI server, on your master branch.
 Feed in input that looks like this:
 
 ```
-_measure_ _value_ [_rising_]
+_measure_,_value_[,_rising_]
 ...
 ```
 
