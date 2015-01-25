@@ -1,13 +1,13 @@
 package main
 
 import (
-	   "github.com/spf13/cobra"
-	   log "github.com/spf13/jwalterweatherman"
-	   "encoding/csv"
-	   "strconv"
-	   "io"
-	   "./store"
-	   "os"
+	"./store"
+	"encoding/csv"
+	"github.com/spf13/cobra"
+	log "github.com/spf13/jwalterweatherman"
+	"io"
+	"os"
+	"strconv"
 )
 
 func main() {
@@ -17,77 +17,77 @@ func main() {
 	var checkCmd = &cobra.Command{
 		Use:   "check",
 		Short: "Checks the values passed in against the most recent stored values.",
-		Long:  `Checks the values passed in against the most recent stored values. 
+		Long: `Checks the values passed in against the most recent stored values. 
 The most recent stored values are found by walking up the commit graph and looking at the git-notes stored.`,
 		Run: func(cmd *cobra.Command, args []string) {
-			 if verbose {
-			 	log.SetLogThreshold(log.LevelInfo)
-			 	log.SetStdoutThreshold(log.LevelInfo)
+			if verbose {
+				log.SetLogThreshold(log.LevelInfo)
+				log.SetStdoutThreshold(log.LevelInfo)
 			}
-			 // Parse the measures from stdin
-			 log.INFO.Println("Parsing measures from stdin")
-			 passedMeasures, err := store.ParseMeasures(os.Stdin)
-			 log.INFO.Println("Finished parsing measures from stdin")
-			 log.INFO.Println(passedMeasures)
-			 if err != nil {
-			 	log.FATAL.Println(err)
+			// Parse the measures from stdin
+			log.INFO.Println("Parsing measures from stdin")
+			passedMeasures, err := store.ParseMeasures(os.Stdin)
+			log.INFO.Println("Finished parsing measures from stdin")
+			log.INFO.Println(passedMeasures)
+			if err != nil {
+				log.FATAL.Println(err)
 				os.Exit(10)
-			 }
-			 
-			 log.INFO.Println("Reading measures stored in git")
-			 gitlog := store.CommitMeasureCommand()
+			}
 
-			 readStoredMeasure, err := store.CommitMeasures(gitlog)
-			 if err != nil {
-			 	log.FATAL.Println(err)
+			log.INFO.Println("Reading measures stored in git")
+			gitlog := store.CommitMeasureCommand()
+
+			readStoredMeasure, err := store.CommitMeasures(gitlog)
+			if err != nil {
+				log.FATAL.Println(err)
 				os.Exit(20)
-			 }
+			}
 
-			 commitmeasure, err := readStoredMeasure()
+			commitmeasure, err := readStoredMeasure()
 
-			 // Empty state of the repository - no stored metrics. Let's store one if we can.
-			 if err == io.EOF {
-			 	log.INFO.Println("No measures found.")
-			 	if write {
-				   log.INFO.Println("Writing initial measure values.")
-				   err = store.PutMeasures(passedMeasures)
-				   if err != nil {
-				   	  log.FATAL.Println(err)
-					  os.Exit(30)
-				   }
-				   log.INFO.Println("Successfully written initial measures.")
+			// Empty state of the repository - no stored metrics. Let's store one if we can.
+			if err == io.EOF {
+				log.INFO.Println("No measures found.")
+				if write {
+					log.INFO.Println("Writing initial measure values.")
+					err = store.PutMeasures(passedMeasures)
+					if err != nil {
+						log.FATAL.Println(err)
+						os.Exit(30)
+					}
+					log.INFO.Println("Successfully written initial measures.")
 				}
-			 } else if err != nil {	 	
-			 	log.FATAL.Println(err)
+			} else if err != nil {
+				log.FATAL.Println(err)
 				os.Exit(40)
-			 } else {
-			    log.INFO.Println(commitmeasure.Measures)
-			    log.INFO.Println("Checking passed measure against stored value")
+			} else {
+				log.INFO.Println(commitmeasure.Measures)
+				log.INFO.Println("Checking passed measure against stored value")
 				err = store.CompareMeasures(commitmeasure.Measures, passedMeasures)
 				if err != nil {
-				   log.FATAL.Println(err)
-				   os.Exit(50)
+					log.FATAL.Println(err)
+					os.Exit(50)
 				} else if write {
-				   log.INFO.Println("Writing measure values.")
-				   err = store.PutMeasures(passedMeasures)
-				   if err != nil {
-				   	  log.FATAL.Println(err)
-					  os.Exit(30)
-				   }
-				   log.INFO.Println("Successfully written measures.")
+					log.INFO.Println("Writing measure values.")
+					err = store.PutMeasures(passedMeasures)
+					if err != nil {
+						log.FATAL.Println(err)
+						os.Exit(30)
+					}
+					log.INFO.Println("Successfully written measures.")
 				} else {
-				   log.INFO.Println("Metrics passing!")
+					log.INFO.Println("Metrics passing!")
 				}
-			 }
-			 
-			 err = gitlog.Wait()
+			}
 
-			 if err != nil {
-			 	log.FATAL.Println(err)
+			err = gitlog.Wait()
+
+			if err != nil {
+				log.FATAL.Println(err)
 				os.Exit(22)
-			 }
+			}
 
-			 log.INFO.Println("Finished reading measures stored in git")
+			log.INFO.Println("Finished reading measures stored in git")
 		},
 	}
 
@@ -108,46 +108,46 @@ The most recent stored values are found by walking up the commit graph and looki
 		Short: "Dump a CSV file containing the measurement data over time.",
 		Long:  `Dump a CSV file containing the measurement data over time.`,
 		Run: func(cmd *cobra.Command, args []string) {
-			 log.INFO.Println("Reading measures stored in git")
-			 gitlog := store.CommitMeasureCommand()
+			log.INFO.Println("Reading measures stored in git")
+			gitlog := store.CommitMeasureCommand()
 
-			 readStoredMeasure, err := store.CommitMeasures(gitlog)
-			 if err != nil {
-			 	log.FATAL.Println(err)
+			readStoredMeasure, err := store.CommitMeasures(gitlog)
+			if err != nil {
+				log.FATAL.Println(err)
 				os.Exit(20)
-			 }
+			}
 
-			 for {
-			 	 cm, err := readStoredMeasure()
+			for {
+				cm, err := readStoredMeasure()
 
-			 	 // Empty state of the repository - no stored metrics.
-			 	 if err == io.EOF {
-			 	 	break
-			 	 } else if err != nil {	 	
-				   log.FATAL.Println(err)
-				   os.Exit(40)
-				 }
-				 
-				 out := csv.NewWriter(os.Stdout)
+				// Empty state of the repository - no stored metrics.
+				if err == io.EOF {
+					break
+				} else if err != nil {
+					log.FATAL.Println(err)
+					os.Exit(40)
+				}
 
-				 for _, measure := range cm.Measures {
-				 	 out.Write([]string{cm.Timestamp.String(), measure.Name, strconv.Itoa(measure.Value)})
-				 }
-				 out.Flush()
-			 }
+				out := csv.NewWriter(os.Stdout)
 
-			 err = gitlog.Wait()
+				for _, measure := range cm.Measures {
+					out.Write([]string{cm.Timestamp.String(), measure.Name, strconv.Itoa(measure.Value)})
+				}
+				out.Flush()
+			}
 
-			 if err != nil {
-			 	log.FATAL.Println(err)
+			err = gitlog.Wait()
+
+			if err != nil {
+				log.FATAL.Println(err)
 				os.Exit(22)
-			 }
+			}
 
-			 log.INFO.Println("Finished reading measures stored in git")
+			log.INFO.Println("Finished reading measures stored in git")
 		},
 	}
-	
+
 	var rootCmd = &cobra.Command{Use: "git-ratchet"}
-    rootCmd.AddCommand(checkCmd, excuseCmd, dumpCmd)
-    rootCmd.Execute()
+	rootCmd.AddCommand(checkCmd, excuseCmd, dumpCmd)
+	rootCmd.Execute()
 }
