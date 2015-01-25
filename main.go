@@ -35,8 +35,6 @@ The most recent stored values are found by walking up the commit graph and looki
 			 log.INFO.Println("Reading measures stored in git")
 			 gitlog := store.CommitMeasureCommand()
 
-			 log.INFO.Println(gitlog.Args)
-
 			 readStoredMeasure, err := store.CommitMeasures(gitlog)
 			 if err != nil {
 			 	log.FATAL.Println(err)

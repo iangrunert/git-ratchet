@@ -8,6 +8,7 @@ import (
 	   "io"
 	   "os"
 	   "os/exec"
+	   "sort"
 	   "strconv"
 	   "strings"
 	   "time"
@@ -31,7 +32,9 @@ func (cm *CommitMeasure) String() string {
 }
 
 func CommitMeasureCommand() *exec.Cmd {
-	 return exec.Command("git", "log", "--show-notes=git-ratchet", `--pretty=format:'%H,%an <%ae>,%at,"%N",'`)
+	gitlog := exec.Command("git", "log", "--show-notes=git-ratchet", `--pretty=format:'%H,%an <%ae>,%at,"%N",'`)
+	log.INFO.Println(strings.Join(gitlog.Args, " "))
+	return gitlog
 }
 
 func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
@@ -110,8 +113,15 @@ func PutMeasures(m []Measure) error {
 	 return writenotes.Run()
 }
 
+type ByName []Measure
+
+func (a ByName) Len() int           { return len(a) }
+func (a ByName) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a ByName) Less(i, j int) bool { return a[i].Name < a[j].Name }
+
 func WriteMeasures(measures []Measure, w io.Writer) error {
 	 out := csv.NewWriter(w)
+	 sort.Sort(ByName(measures))
 	 for _, m := range measures {
 	 	 err := out.Write([]string{m.Name, strconv.Itoa(m.Value), strconv.FormatBool(m.Rising)})
 		 if err != nil {
