@@ -50,15 +50,17 @@ func WriteNotes(writef func(io.Writer) error, ref string) error {
 	writenotes := exec.Command("git", "notes", "--ref=" + ref, "add", "-f", "-F", notepath)
 
 	log.INFO.Println(strings.Join(writenotes.Args, " "))
-
-	err = writenotes.Run()
-	if err != nil {
-		return err
-	}
 	
-	pushnotes := exec.Command("git", "push", "origin", "refs/notes/" + ref)
+	return writenotes.Run()
+	
+	// err = writenotes.Run()
+	// if err != nil {
+	//	return err
+	//}
+	
+	// pushnotes := exec.Command("git", "push", "origin", "refs/notes/" + ref)
 
-	log.INFO.Println(strings.Join(pushnotes.Args, " "))
+	// log.INFO.Println(strings.Join(pushnotes.Args, " "))
 
-	return pushnotes.Run()
+	// return pushnotes.Run()
 }

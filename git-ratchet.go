@@ -4,6 +4,7 @@ import (
 	ratchet "github.com/iangrunert/git-ratchet/cmd"
 	"github.com/spf13/cobra"
 	log "github.com/spf13/jwalterweatherman"
+	"os"
 )
 
 func main() {
@@ -21,7 +22,10 @@ The most recent stored values are found by walking up the commit graph and looki
 				log.SetStdoutThreshold(log.LevelInfo)
 			}
 
-			ratchet.Check(write)
+			err := ratchet.Check(write, os.Stdin)
+			if err != 0 {
+				os.Exit(err)
+			}
 		},
 	}
 

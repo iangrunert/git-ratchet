@@ -4,18 +4,17 @@ import (
 	"github.com/iangrunert/git-ratchet/store"
 	log "github.com/spf13/jwalterweatherman"
 	"io"
-	"os"
 )
 
-func Check(write bool) {
+func Check(write bool, input io.Reader) int {
 	// Parse the measures from stdin
 	log.INFO.Println("Parsing measures from stdin")
-	passedMeasures, err := store.ParseMeasures(os.Stdin)
+	passedMeasures, err := store.ParseMeasures(input)
 	log.INFO.Println("Finished parsing measures from stdin")
 	log.INFO.Println(passedMeasures)
 	if err != nil {
 		log.FATAL.Println(err)
-		os.Exit(10)
+		return 10
 	}
 	
 	log.INFO.Println("Reading measures stored in git")
@@ -24,7 +23,7 @@ func Check(write bool) {
 	readStoredMeasure, err := store.CommitMeasures(gitlog)
 	if err != nil {
 		log.FATAL.Println(err)
-		os.Exit(20)
+		return 20
 	}
 
 	commitmeasure, err := readStoredMeasure()
@@ -37,26 +36,26 @@ func Check(write bool) {
 			err = store.PutMeasures(passedMeasures)
 			if err != nil {
 				log.FATAL.Println(err)
-				os.Exit(30)
+				return 30
 			}
 			log.INFO.Println("Successfully written initial measures.")
 		}
 	} else if err != nil {
 		log.FATAL.Println(err)
-		os.Exit(40)
+		return 40
 	} else {
 		log.INFO.Println(commitmeasure.Measures)
 		log.INFO.Println("Checking passed measure against stored value")
 		err = store.CompareMeasures(commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures)
 		if err != nil {
 			log.FATAL.Println(err)
-			os.Exit(50)
+			return 50
 		} else if write {
 			log.INFO.Println("Writing measure values.")
 			err = store.PutMeasures(passedMeasures)
 			if err != nil {
 				log.FATAL.Println(err)
-				os.Exit(30)
+				return 30
 			}
 			log.INFO.Println("Successfully written measures.")
 		} else {
@@ -68,8 +67,9 @@ func Check(write bool) {
 	
 	if err != nil {
 		log.FATAL.Println(err)
-		os.Exit(22)
+		return 22
 	}
 	
 	log.INFO.Println("Finished reading measures stored in git")
+	return 0
 }
