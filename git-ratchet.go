@@ -58,7 +58,11 @@ The most recent stored values are found by walking up the commit graph and looki
 		Short: "Dump a CSV file containing the measurement data over time.",
 		Long:  `Dump a CSV file containing the measurement data over time.`,
 		Run: func(cmd *cobra.Command, args []string) {
-			ratchet.Dump()
+			err := ratchet.Dump(os.Stdout)
+
+			if err != 0 {
+				os.Exit(err)
+			}
 		},
 	}
 

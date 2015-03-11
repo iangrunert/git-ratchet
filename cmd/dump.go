@@ -5,18 +5,17 @@ import (
 	"encoding/csv"
 	log "github.com/spf13/jwalterweatherman"
 	"io"
-	"os"
 	"strconv"
 )
 
-func Dump() {
+func Dump(output io.Writer) int {
 	log.INFO.Println("Reading measures stored in git")
 	gitlog := store.CommitMeasureCommand()
 	
 	readStoredMeasure, err := store.CommitMeasures(gitlog)
 	if err != nil {
 		log.FATAL.Println(err)
-		os.Exit(20)
+		return 20
 	}
 	
 	for {
@@ -27,10 +26,10 @@ func Dump() {
 			break
 		} else if err != nil {
 			log.FATAL.Println(err)
-			os.Exit(40)
+			return 40
 		}
 		
-		out := csv.NewWriter(os.Stdout)
+		out := csv.NewWriter(output)
 		
 		for _, measure := range cm.Measures {
 			out.Write([]string{cm.Timestamp.String(), measure.Name, strconv.Itoa(measure.Value)})
@@ -42,8 +41,9 @@ func Dump() {
 	
 	if err != nil {
 		log.FATAL.Println(err)
-		os.Exit(22)
+		return 22
 	}
 	
 	log.INFO.Println("Finished reading measures stored in git")
+	return 0
 }

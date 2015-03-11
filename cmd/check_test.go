@@ -17,14 +17,8 @@ func TestCheck(t *testing.T) {
 		log.SetStdoutThreshold(log.LevelInfo)
 	}
 
-	repo := createEmptyGitRepo(t)
-	
-	err := os.Chdir(repo)
-	
-	if err != nil {
-		t.Fatalf("Failed to change to directory %s", repo)
-	}
-	
+	createEmptyGitRepo(t)
+		
 	runCheck(t, false, "")
 	runCheck(t, false, "foo,5")
 	runCheck(t, true, "foo,5")
@@ -50,39 +44,39 @@ func runCheck(t *testing.T, write bool, input string) {
 }
 
 func createEmptyGitRepo(t *testing.T) string {
-	testDir, err := ioutil.TempDir(os.TempDir(), "git-ratchet-test-")
+	repo, err := ioutil.TempDir(os.TempDir(), "git-ratchet-test-")
 		
 	if err != nil {
-		t.Fatalf("Failed to create directory %s", testDir)
+		t.Fatalf("Failed to create directory %s", repo)
 	}
 
-	err = os.Chdir(testDir)
+	err = os.Chdir(repo)
 	
 	if err != nil {
-		t.Fatalf("Failed to init repository %s", testDir)
+		t.Fatalf("Failed to init repository %s", repo)
 	}
 	
-	runCommand(t, testDir, exec.Command("git", "init", testDir))
-	runCommand(t, testDir, exec.Command("git", "config", "user.email", "test@example.com"))	
-	runCommand(t, testDir, exec.Command("git", "config", "user.name", "Test Name"))	
+	runCommand(t, repo, exec.Command("git", "init", repo))
+	runCommand(t, repo, exec.Command("git", "config", "user.email", "test@example.com"))	
+	runCommand(t, repo, exec.Command("git", "config", "user.name", "Test Name"))	
 
-	runCommand(t, testDir, exec.Command("git", "add", createFile(t, testDir, "README").Name()))
-	runCommand(t, testDir, exec.Command("git", "commit", "-m", "First Commit"))
-	runCommand(t, testDir, exec.Command("git", "add", createFile(t, testDir, "test.txt").Name()))
-	runCommand(t, testDir, exec.Command("git", "commit", "-m", "Second Commit"))
+	runCommand(t, repo, exec.Command("git", "add", createFile(t, repo, "README").Name()))
+	runCommand(t, repo, exec.Command("git", "commit", "-m", "First Commit"))
+	runCommand(t, repo, exec.Command("git", "add", createFile(t, repo, "test.txt").Name()))
+	runCommand(t, repo, exec.Command("git", "commit", "-m", "Second Commit"))
 
-	t.Logf("Init repository %s", testDir)
+	t.Logf("Init repository %s", repo)
 	
-	return testDir
+	return repo
 }
 
-func runCommand(t *testing.T, testDir string, c *exec.Cmd) {
+func runCommand(t *testing.T, repo string, c *exec.Cmd) {
 	t.Logf("Running command %s", strings.Join(c.Args, " "))
 	
 	output, err := c.CombinedOutput()
 	
 	if err != nil {
-		t.Fatalf("Failed to init repository %s, %s, %s", testDir, err, output)
+		t.Fatalf("Failed to init repository %s, %s, %s", repo, err, output)
 	}
 }
 
