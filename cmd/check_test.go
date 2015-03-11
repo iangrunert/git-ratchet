@@ -11,7 +11,7 @@ import (
 	log "github.com/spf13/jwalterweatherman"
 )
 
-func TestEmptyRepository(t *testing.T) {
+func TestCheck(t *testing.T) {
 	if (testing.Verbose()) {
 		log.SetLogThreshold(log.LevelInfo)
 		log.SetStdoutThreshold(log.LevelInfo)
@@ -34,7 +34,7 @@ func TestEmptyRepository(t *testing.T) {
 
 	errCode := Check(false, strings.NewReader("foo,6"))
 
-	if errCode == 0 {
+	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
 	}
 }
@@ -55,25 +55,21 @@ func createEmptyGitRepo(t *testing.T) string {
 	if err != nil {
 		t.Fatalf("Failed to create directory %s", testDir)
 	}
-	
-	runCommand(t, testDir, exec.Command("git", "init", testDir))
-	
-	file, err := os.Create(filepath.Join(testDir, "README"))
-	
-	if err != nil {
-		t.Fatalf("Failed to init repository %s", testDir)
-	}
 
 	err = os.Chdir(testDir)
 	
 	if err != nil {
 		t.Fatalf("Failed to init repository %s", testDir)
 	}
-
-	runCommand(t, testDir, exec.Command("git", "add", file.Name()))
+	
+	runCommand(t, testDir, exec.Command("git", "init", testDir))
 	runCommand(t, testDir, exec.Command("git", "config", "user.email", "test@example.com"))	
 	runCommand(t, testDir, exec.Command("git", "config", "user.name", "Test Name"))	
+
+	runCommand(t, testDir, exec.Command("git", "add", createFile(t, testDir, "README").Name()))
 	runCommand(t, testDir, exec.Command("git", "commit", "-m", "First Commit"))
+	runCommand(t, testDir, exec.Command("git", "add", createFile(t, testDir, "test.txt").Name()))
+	runCommand(t, testDir, exec.Command("git", "commit", "-m", "Second Commit"))
 
 	t.Logf("Init repository %s", testDir)
 	
@@ -88,4 +84,14 @@ func runCommand(t *testing.T, testDir string, c *exec.Cmd) {
 	if err != nil {
 		t.Fatalf("Failed to init repository %s, %s, %s", testDir, err, output)
 	}
+}
+
+func createFile(t *testing.T, repo string, filename string) *os.File {
+	file, err := os.Create(filepath.Join(repo, filename))
+	
+	if err != nil {
+		t.Fatalf("Failed to init repository %s", repo)
+	}
+
+	return file
 }
