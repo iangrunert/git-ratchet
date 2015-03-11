@@ -86,10 +86,10 @@ func createEmptyGitRepo(t *testing.T) string {
 	
 	gitCommit := exec.Command("git", "commit", "-m", "First Commit")
 
-	_, err = gitCommit.CombinedOutput()
+	commitOut, err := gitCommit.CombinedOutput()
 	
 	if err != nil {
-		t.Fatalf("Failed to init repository %s", testDir)
+		t.Fatalf("Failed to init repository %s, %s, %s", testDir, err, commitOut)
 	}
 	
 	t.Logf("Init repository %s", testDir)
