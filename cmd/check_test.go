@@ -56,13 +56,7 @@ func createEmptyGitRepo(t *testing.T) string {
 		t.Fatalf("Failed to create directory %s", testDir)
 	}
 	
-	gitInit := exec.Command("git", "init", testDir)
-	
-	_, err = gitInit.CombinedOutput()
-	
-	if err != nil {
-		t.Fatalf("Failed to init repository %s", testDir)
-	}
+	runCommand(t, testDir, exec.Command("git", "init", testDir))
 	
 	file, err := os.Create(filepath.Join(testDir, "README"))
 	
@@ -75,24 +69,23 @@ func createEmptyGitRepo(t *testing.T) string {
 	if err != nil {
 		t.Fatalf("Failed to init repository %s", testDir)
 	}
-	
-	gitAdd := exec.Command("git", "add", file.Name())
-	
-	_, err = gitAdd.CombinedOutput()
-	
-	if err != nil {
-		t.Fatalf("Failed to init repository %s", testDir)
-	}
-	
-	gitCommit := exec.Command("git", "commit", "-m", "First Commit")
 
-	commitOut, err := gitCommit.CombinedOutput()
-	
-	if err != nil {
-		t.Fatalf("Failed to init repository %s, %s, %s", testDir, err, commitOut)
-	}
-	
+	runCommand(t, testDir, exec.Command("git", "add", file.Name()))
+	runCommand(t, testDir, exec.Command("git", "config", "user.email", "test@example.com"))	
+	runCommand(t, testDir, exec.Command("git", "config", "user.name", "Test Name"))	
+	runCommand(t, testDir, exec.Command("git", "commit", "-m", "First Commit"))
+
 	t.Logf("Init repository %s", testDir)
 	
 	return testDir
+}
+
+func runCommand(t *testing.T, testDir string, c *exec.Cmd) {
+	t.Logf("Running command %s", strings.Join(c.Args, " "))
+	
+	output, err := c.CombinedOutput()
+	
+	if err != nil {
+		t.Fatalf("Failed to init repository %s, %s, %s", testDir, err, output)
+	}
 }
