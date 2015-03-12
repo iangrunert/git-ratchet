@@ -45,5 +45,11 @@ func WriteExclusion(ex Exclusion) error {
 		return nil
 	}
 
-	return WriteNotes(writef, "git-ratchet-excuse")
+	err := WriteNotes(writef, "git-ratchet-excuse")
+	
+	if err != nil {
+		return err
+	}
+	
+	return PushNotes("git-ratchet-excuse")
 }

@@ -4,6 +4,7 @@ import (
 	"github.com/iangrunert/git-ratchet/store"
 	log "github.com/spf13/jwalterweatherman"
 	"io"
+	"bytes"
 )
 
 func Check(prefix string, slack int, write bool, input io.Reader) int {
@@ -19,6 +20,8 @@ func Check(prefix string, slack int, write bool, input io.Reader) int {
 	
 	log.INFO.Println("Reading measures stored in git")
 	gitlog := store.CommitMeasureCommand(prefix)
+	var stderr bytes.Buffer	
+	gitlog.Stderr = &stderr
 	
 	readStoredMeasure, err := store.CommitMeasures(gitlog)
 	if err != nil {
@@ -66,10 +69,10 @@ func Check(prefix string, slack int, write bool, input io.Reader) int {
 	err = gitlog.Wait()
 	
 	if err != nil {
-		log.FATAL.Println(err)
+		log.FATAL.Println("Error reading git notes %s, %s", err, stderr.Bytes())
 		return 22
 	}
-	
+
 	log.INFO.Println("Finished reading measures stored in git")
 	return 0
 }
