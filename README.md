@@ -1,6 +1,8 @@
 # git-ratchet
 git-ratchet is a tool for building ratcheted builds. Ratcheted builds are builds that go *red* when a given measure increases.
 
+[![Build Status](https://travis-ci.org/iangrunert/git-ratchet.svg?branch=postgalarefactor)](https://travis-ci.org/iangrunert/git-ratchet)
+
 ## What's it for?
 Ratcheted builds are for teams that would like to pay off technical debt or tackle larger architectural changes to a code base over a medium-to-long term time period. Let's dive into a few examples.
 
