@@ -76,6 +76,6 @@ The most recent stored values are found by walking up the commit graph and looki
 	rootCmd.AddCommand(checkCmd, excuseCmd, dumpCmd)
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "increase logging verbosity.")
 	rootCmd.PersistentFlags().StringVarP(&prefix, "prefix", "p", "master", "prefix the ratchet notes. useful for storing multiple sets of values in the same repo.")
-	
+
 	rootCmd.Execute()
 }

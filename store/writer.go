@@ -1,8 +1,8 @@
 package store
 
 import (
-	"encoding/json"
 	"encoding/csv"
+	"encoding/json"
 	"io"
 	"sort"
 	"strconv"
@@ -11,7 +11,7 @@ import (
 )
 
 func PutMeasures(prefix string, m []Measure) error {
-	writef := func(tempfile io.Writer) error { 
+	writef := func(tempfile io.Writer) error {
 		err := WriteMeasures(m, tempfile)
 		if err != nil {
 			return err
@@ -19,7 +19,7 @@ func PutMeasures(prefix string, m []Measure) error {
 		return nil
 	}
 
-	return WriteNotes(writef, "git-ratchet-1-" + prefix)
+	return WriteNotes(writef, "git-ratchet-1-"+prefix)
 }
 
 func WriteMeasures(measures []Measure, w io.Writer) error {
@@ -37,29 +37,29 @@ func WriteMeasures(measures []Measure, w io.Writer) error {
 
 func WriteExclusion(prefix string, ex Exclusion) error {
 	ref := "git-ratchet-excuse-1-" + prefix
-	
-	writef := func(tempfile io.Writer) error { 
+
+	writef := func(tempfile io.Writer) error {
 		b, err := json.Marshal(ex)
-	
+
 		if err != nil {
 			return err
 		}
-		
+
 		tempfile.Write(b)
 		return nil
 	}
 
 	err := WriteNotes(writef, ref)
-	
+
 	if err != nil {
 		return err
 	}
-	
+
 	err = PushNotes(ref)
-	
+
 	if err != nil {
 		log.ERROR.Printf("Error while pushing notes: %s", err)
 	}
-	
+
 	return nil
 }

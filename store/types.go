@@ -5,8 +5,8 @@ import (
 )
 
 type Measure struct {
-	Name  string
-	Value int
+	Name     string
+	Value    int
 	Baseline int
 }
 
@@ -19,8 +19,8 @@ type CommitMeasure struct {
 
 type Exclusion struct {
 	Committer string
-	Excuse string
-	Measure []string
+	Excuse    string
+	Measure   []string
 }
 
 type ByName []Measure

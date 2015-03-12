@@ -1,10 +1,10 @@
 package cmd
 
 import (
+	"bytes"
 	"github.com/iangrunert/git-ratchet/store"
 	log "github.com/spf13/jwalterweatherman"
 	"io"
-	"bytes"
 )
 
 func Check(prefix string, slack int, write bool, input io.Reader) int {
@@ -17,12 +17,12 @@ func Check(prefix string, slack int, write bool, input io.Reader) int {
 		log.FATAL.Println(err)
 		return 10
 	}
-	
+
 	log.INFO.Println("Reading measures stored in git")
 	gitlog := store.CommitMeasureCommand(prefix)
-	var stderr bytes.Buffer	
+	var stderr bytes.Buffer
 	gitlog.Stderr = &stderr
-	
+
 	readStoredMeasure, err := store.CommitMeasures(gitlog)
 	if err != nil {
 		log.FATAL.Println(err)
@@ -30,7 +30,7 @@ func Check(prefix string, slack int, write bool, input io.Reader) int {
 	}
 
 	commitmeasure, err := readStoredMeasure()
-	
+
 	// Empty state of the repository - no stored metrics. Let's store one if we can.
 	if err == io.EOF {
 		log.INFO.Println("No measures found.")
@@ -65,9 +65,9 @@ func Check(prefix string, slack int, write bool, input io.Reader) int {
 			log.INFO.Println("Metrics passing!")
 		}
 	}
-	
+
 	err = gitlog.Wait()
-	
+
 	if err != nil {
 		log.FATAL.Println("Error reading git notes %s, %s", err, stderr.Bytes())
 		return 22
