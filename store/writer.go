@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-func PutMeasures(m []Measure) error {
+func PutMeasures(prefix string, m []Measure) error {
 	writef := func(tempfile io.Writer) error { 
 		err := WriteMeasures(m, tempfile)
 		if err != nil {
@@ -17,7 +17,7 @@ func PutMeasures(m []Measure) error {
 		return nil
 	}
 
-	return WriteNotes(writef, "git-ratchet")
+	return WriteNotes(writef, "git-ratchet-1-" + prefix)
 }
 
 func WriteMeasures(measures []Measure, w io.Writer) error {

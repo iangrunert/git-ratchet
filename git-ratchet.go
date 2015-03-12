@@ -10,6 +10,7 @@ import (
 func main() {
 	var write bool
 	var verbose bool
+	var prefix string
 
 	var checkCmd = &cobra.Command{
 		Use:   "check",
@@ -22,7 +23,7 @@ The most recent stored values are found by walking up the commit graph and looki
 				log.SetStdoutThreshold(log.LevelInfo)
 			}
 
-			err := ratchet.Check(write, os.Stdin)
+			err := ratchet.Check(prefix, write, os.Stdin)
 			if err != 0 {
 				os.Exit(err)
 			}
@@ -30,7 +31,6 @@ The most recent stored values are found by walking up the commit graph and looki
 	}
 
 	checkCmd.Flags().BoolVarP(&write, "write", "w", false, "write values if no increase is detected. only use on your CI server.")
-	checkCmd.Flags().BoolVarP(&verbose, "verbose", "v", false, "increase logging verbosity.")
 
 	var measure string
 	var excuse string
@@ -45,20 +45,19 @@ The most recent stored values are found by walking up the commit graph and looki
 				log.SetStdoutThreshold(log.LevelInfo)
 			}
 
-			ratchet.Excuse(measure, excuse)
+			ratchet.Excuse(prefix, measure, excuse)
 		},
 	}
 
-	excuseCmd.Flags().StringVarP(&measure, "name", "n", "", "names of the measures to excuse, comma separated list")
-	excuseCmd.Flags().StringVarP(&excuse, "excuse", "e", "", "excuse for the measure rising")
-	excuseCmd.Flags().BoolVarP(&verbose, "verbose", "v", false, "increase logging verbosity.")
+	excuseCmd.Flags().StringVarP(&measure, "name", "n", "", "names of the measures to excuse, comma separated list.")
+	excuseCmd.Flags().StringVarP(&excuse, "excuse", "e", "", "excuse for the measure rising.")
 
 	var dumpCmd = &cobra.Command{
 		Use:   "dump",
 		Short: "Dump a CSV file containing the measurement data over time.",
 		Long:  `Dump a CSV file containing the measurement data over time.`,
 		Run: func(cmd *cobra.Command, args []string) {
-			err := ratchet.Dump(os.Stdout)
+			err := ratchet.Dump(prefix, os.Stdout)
 
 			if err != 0 {
 				os.Exit(err)
@@ -68,5 +67,8 @@ The most recent stored values are found by walking up the commit graph and looki
 
 	var rootCmd = &cobra.Command{Use: "git-ratchet"}
 	rootCmd.AddCommand(checkCmd, excuseCmd, dumpCmd)
+	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "increase logging verbosity.")
+	rootCmd.PersistentFlags().StringVarP(&prefix, "prefix", "p", "master", "prefix the ratchet notes. useful for storing multiple sets of values in the same repo.")
+	
 	rootCmd.Execute()
 }

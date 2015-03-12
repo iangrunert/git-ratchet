@@ -8,9 +8,9 @@ import (
 	"strconv"
 )
 
-func Dump(output io.Writer) int {
+func Dump(prefix string, output io.Writer) int {
 	log.INFO.Println("Reading measures stored in git")
-	gitlog := store.CommitMeasureCommand()
+	gitlog := store.CommitMeasureCommand(prefix)
 	
 	readStoredMeasure, err := store.CommitMeasures(gitlog)
 	if err != nil {

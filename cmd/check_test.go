@@ -26,7 +26,28 @@ func TestCheck(t *testing.T) {
 
 	t.Logf("Running check command w: %t i: %s", false, "foo,6")
 
-	errCode := Check(false, strings.NewReader("foo,6"))
+	errCode := Check("", false, strings.NewReader("foo,6"))
+
+	if errCode != 50 {
+		t.Fatalf("Check command passed unexpectedly!")
+	}
+}
+
+func TestCheckPrefix(t *testing.T) {
+	if (testing.Verbose()) {
+		log.SetLogThreshold(log.LevelInfo)
+		log.SetStdoutThreshold(log.LevelInfo)
+	}
+
+	createEmptyGitRepo(t)
+		
+	runCheckP(t, "foobar", true, "foo,5")
+	// Running a check against a different prefix should still work
+	runCheckP(t, "barfoo", true, "foo,6")
+
+	t.Logf("Running check command p: %s w: %t i: %s", "foobar", false, "foo,6")
+
+	errCode := Check("foobar", false, strings.NewReader("foo,6"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
@@ -34,9 +55,13 @@ func TestCheck(t *testing.T) {
 }
 
 func runCheck(t *testing.T, write bool, input string) {
-	t.Logf("Running check command w: %t i: %s", write, input)
+	runCheckP(t, "", write, input)
+}
 
-	errCode := Check(write, strings.NewReader(input))
+func runCheckP(t *testing.T, prefix string, write bool, input string) {
+	t.Logf("Running check command p: %s w: %t i: %s", prefix, write, input)
+
+	errCode := Check(prefix, write, strings.NewReader(input))
 
 	if errCode != 0 {
 		t.Fatalf("Check command failed! Error code: %d", errCode)

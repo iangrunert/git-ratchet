@@ -18,12 +18,12 @@ func TestDump(t *testing.T) {
 	
 	repo := createEmptyGitRepo(t)
 	
-	runCheck(t, true, "foo,5")
+	runCheckP(t, "foo", true, "foo,5")
 	runCommand(t, repo, exec.Command("git", "add", createFile(t, repo, "bar.txt").Name()))
 	runCommand(t, repo, exec.Command("git", "commit", "-m", "Third Commit"))
-	runCheck(t, true, "foo,4")
+	runCheckP(t, "foo", true, "foo,4")
 	
-	dump := bufio.NewScanner(bytes.NewReader(runDump(t).Bytes()))
+	dump := bufio.NewScanner(bytes.NewReader(runDump(t, "foo").Bytes()))
 	
 	dump.Scan()
 	
@@ -32,6 +32,10 @@ func TestDump(t *testing.T) {
 	dump.Scan()
 
 	checkString(t, "foo,5", dump.Text())
+
+	if len(runDump(t, "bar").Bytes()) > 0 {
+		t.Fatalf("Should be no data under prefix bar")
+	}
 }
 
 func checkString(t *testing.T, expected string, actual string) {
@@ -40,12 +44,12 @@ func checkString(t *testing.T, expected string, actual string) {
 	}	
 }
 
-func runDump(t *testing.T) *bytes.Buffer {
+func runDump(t *testing.T, prefix string) *bytes.Buffer {
 	t.Logf("Running dump command")
 
 	buf := new(bytes.Buffer)
 
-	errCode := Dump(buf)
+	errCode := Dump(prefix, buf)
 
 	if errCode != 0 {
 		t.Fatalf("Check command failed! Error code: %d", errCode)

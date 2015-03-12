@@ -6,7 +6,7 @@ import (
 	"io"
 )
 
-func Check(write bool, input io.Reader) int {
+func Check(prefix string, write bool, input io.Reader) int {
 	// Parse the measures from stdin
 	log.INFO.Println("Parsing measures from stdin")
 	passedMeasures, err := store.ParseMeasures(input)
@@ -18,7 +18,7 @@ func Check(write bool, input io.Reader) int {
 	}
 	
 	log.INFO.Println("Reading measures stored in git")
-	gitlog := store.CommitMeasureCommand()
+	gitlog := store.CommitMeasureCommand(prefix)
 	
 	readStoredMeasure, err := store.CommitMeasures(gitlog)
 	if err != nil {
@@ -33,7 +33,7 @@ func Check(write bool, input io.Reader) int {
 		log.INFO.Println("No measures found.")
 		if write {
 			log.INFO.Println("Writing initial measure values.")
-			err = store.PutMeasures(passedMeasures)
+			err = store.PutMeasures(prefix, passedMeasures)
 			if err != nil {
 				log.FATAL.Println(err)
 				return 30
@@ -52,7 +52,7 @@ func Check(write bool, input io.Reader) int {
 			return 50
 		} else if write {
 			log.INFO.Println("Writing measure values.")
-			err = store.PutMeasures(passedMeasures)
+			err = store.PutMeasures(prefix, passedMeasures)
 			if err != nil {
 				log.FATAL.Println(err)
 				return 30

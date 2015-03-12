@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func Excuse(measure string, excuse string) {
+func Excuse(prefix string, measure string, excuse string) {
 	name, err := store.GetCommitterName()
 	
 	if err != nil {
