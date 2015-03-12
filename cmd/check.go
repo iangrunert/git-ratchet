@@ -49,7 +49,7 @@ func Check(prefix string, slack int, write bool, input io.Reader) int {
 	} else {
 		log.INFO.Println(commitmeasure.Measures)
 		log.INFO.Println("Checking passed measure against stored value")
-		err = store.CompareMeasures(commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures, slack)
+		err = store.CompareMeasures(prefix, commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures, slack)
 		if err != nil {
 			log.FATAL.Println(err)
 			return 50

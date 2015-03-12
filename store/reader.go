@@ -112,7 +112,7 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 	return measures, nil
 }
 
-func CompareMeasures(hash string, storedm []Measure, computedm []Measure, slack int) error {
+func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []Measure, slack int) error {
 	if len(computedm) == 0 {
 		return errors.New("No measures passed to git-ratchet to compare against.")
 	}
@@ -169,7 +169,7 @@ func CompareMeasures(hash string, storedm []Measure, computedm []Measure, slack 
 	if len(failing) > 0 {
 		log.INFO.Printf("Checking for excuses")
 
-		exclusions, err := GetExclusions(hash)
+		exclusions, err := GetExclusions(prefix, hash)
 
 		if err != nil {
 			return err
@@ -207,8 +207,10 @@ func CompareMeasures(hash string, storedm []Measure, computedm []Measure, slack 
 	return nil
 }
 
-func GetExclusions(hash string) ([]string, error) {
-	gitlog := GitLog("git-ratchet-excuse", hash + "^1..HEAD", "%N")
+func GetExclusions(prefix string, hash string) ([]string, error) {
+	ref := "git-ratchet-excuse-1-" + prefix
+	
+	gitlog := GitLog(ref, hash + "^1..HEAD", "%N")
 	
 	stdout, err := gitlog.StdoutPipe()
 	if err != nil {

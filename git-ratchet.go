@@ -47,7 +47,7 @@ The most recent stored values are found by walking up the commit graph and looki
 				log.SetStdoutThreshold(log.LevelInfo)
 			}
 
-			ratchet.Excuse(prefix, measure, excuse)
+			os.Exit(ratchet.Excuse(prefix, measure, excuse))
 		},
 	}
 

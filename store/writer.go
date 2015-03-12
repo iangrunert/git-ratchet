@@ -6,6 +6,8 @@ import (
 	"io"
 	"sort"
 	"strconv"
+
+	log "github.com/spf13/jwalterweatherman"
 )
 
 func PutMeasures(prefix string, m []Measure) error {
@@ -33,7 +35,9 @@ func WriteMeasures(measures []Measure, w io.Writer) error {
 	return nil
 }
 
-func WriteExclusion(ex Exclusion) error {
+func WriteExclusion(prefix string, ex Exclusion) error {
+	ref := "git-ratchet-excuse-1-" + prefix
+	
 	writef := func(tempfile io.Writer) error { 
 		b, err := json.Marshal(ex)
 	
@@ -45,11 +49,17 @@ func WriteExclusion(ex Exclusion) error {
 		return nil
 	}
 
-	err := WriteNotes(writef, "git-ratchet-excuse")
+	err := WriteNotes(writef, ref)
 	
 	if err != nil {
 		return err
 	}
 	
-	return PushNotes("git-ratchet-excuse")
+	err = PushNotes(ref)
+	
+	if err != nil {
+		log.ERROR.Printf("Error while pushing notes: %s", err)
+	}
+	
+	return nil
 }

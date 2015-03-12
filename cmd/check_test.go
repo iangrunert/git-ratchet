@@ -76,6 +76,49 @@ func TestCheckSlack(t *testing.T) {
 	}
 }
 
+func TestCheckExcuse(t *testing.T) {
+	if (testing.Verbose()) {
+		log.SetLogThreshold(log.LevelInfo)
+		log.SetStdoutThreshold(log.LevelInfo)
+	}
+
+	createEmptyGitRepo(t)
+		
+	runCheckP(t, "foobar", true, "foo,5")
+	// Increase on "barfoo" prefix is okay
+	runCheckP(t, "barfoo", true, "foo,6")
+
+	t.Logf("Running check command p: %s w: %t i: %s", "foobar", false, "foo,6")
+
+	errCode := Check("foobar", 0, false, strings.NewReader("foo,6"))
+
+	if errCode != 50 {
+		t.Fatalf("Check command passed unexpectedly!")
+	}
+	
+	writeExcuse(t, "foobar", "foo", "PROD's down right now, I'll clean foo up later")
+	
+	runCheckP(t, "foobar", true, "foo,6")
+	
+	t.Logf("Running check command p: %s w: %t i: %s", "barfoo", false, "foo,7")
+
+	errCode = Check("barfoo", 0, false, strings.NewReader("foo,7"))
+
+	if errCode != 50 {
+		t.Fatalf("Check command passed unexpectedly!")
+	}
+}
+
+func writeExcuse(t *testing.T, prefix string, measure string, excuse string) {
+	t.Logf("Running excuse command p: %s m: %s, e: %s", prefix, measure, excuse)
+	
+	errCode := Excuse(prefix, measure, excuse)
+	
+	if errCode != 0 {
+		t.Fatalf("Excuse command failed! Error code: %d", errCode)
+	}
+}
+
 func runCheck(t *testing.T, write bool, input string) {
 	runCheckP(t, "", write, input)
 }
