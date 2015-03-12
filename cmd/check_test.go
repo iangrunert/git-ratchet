@@ -26,7 +26,7 @@ func TestCheck(t *testing.T) {
 
 	t.Logf("Running check command w: %t i: %s", false, "foo,6")
 
-	errCode := Check("", false, strings.NewReader("foo,6"))
+	errCode := Check("", 0, false, strings.NewReader("foo,6"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
@@ -47,7 +47,29 @@ func TestCheckPrefix(t *testing.T) {
 
 	t.Logf("Running check command p: %s w: %t i: %s", "foobar", false, "foo,6")
 
-	errCode := Check("foobar", false, strings.NewReader("foo,6"))
+	errCode := Check("foobar", 0, false, strings.NewReader("foo,6"))
+
+	if errCode != 50 {
+		t.Fatalf("Check command passed unexpectedly!")
+	}
+}
+
+func TestCheckSlack(t *testing.T) {
+	if (testing.Verbose()) {
+		log.SetLogThreshold(log.LevelInfo)
+		log.SetStdoutThreshold(log.LevelInfo)
+	}
+
+	createEmptyGitRepo(t)
+
+	slack := 5
+		
+	runCheckPS(t, "pageweight", slack, true, "gzippedjs,10")
+	runCheckPS(t, "pageweight", slack, false, "gzippedjs,15")
+	
+	t.Logf("Running check command p: %s w: %t i: %s", "pageweight", false, "gzippedjs,16")
+
+	errCode := Check("pageweight", slack, false, strings.NewReader("gzippedjs,16"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
@@ -59,9 +81,13 @@ func runCheck(t *testing.T, write bool, input string) {
 }
 
 func runCheckP(t *testing.T, prefix string, write bool, input string) {
-	t.Logf("Running check command p: %s w: %t i: %s", prefix, write, input)
+	runCheckPS(t, prefix, 0, write, input)
+}
 
-	errCode := Check(prefix, write, strings.NewReader(input))
+func runCheckPS(t *testing.T, prefix string, slack int, write bool, input string) {
+	t.Logf("Running check command p: %s s: %d, w: %t i: %s", prefix, slack, write, input)
+
+	errCode := Check(prefix, slack, write, strings.NewReader(input))
 
 	if errCode != 0 {
 		t.Fatalf("Check command failed! Error code: %d", errCode)

@@ -24,7 +24,7 @@ func WriteMeasures(measures []Measure, w io.Writer) error {
 	out := csv.NewWriter(w)
 	sort.Sort(ByName(measures))
 	for _, m := range measures {
-		err := out.Write([]string{m.Name, strconv.Itoa(m.Value)})
+		err := out.Write([]string{m.Name, strconv.Itoa(m.Value), strconv.Itoa(m.Baseline)})
 		if err != nil {
 			return err
 		}

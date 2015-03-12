@@ -6,7 +6,7 @@ import (
 	"io"
 )
 
-func Check(prefix string, write bool, input io.Reader) int {
+func Check(prefix string, slack int, write bool, input io.Reader) int {
 	// Parse the measures from stdin
 	log.INFO.Println("Parsing measures from stdin")
 	passedMeasures, err := store.ParseMeasures(input)
@@ -46,7 +46,7 @@ func Check(prefix string, write bool, input io.Reader) int {
 	} else {
 		log.INFO.Println(commitmeasure.Measures)
 		log.INFO.Println("Checking passed measure against stored value")
-		err = store.CompareMeasures(commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures)
+		err = store.CompareMeasures(commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures, slack)
 		if err != nil {
 			log.FATAL.Println(err)
 			return 50

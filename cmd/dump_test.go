@@ -52,7 +52,7 @@ func runDump(t *testing.T, prefix string) *bytes.Buffer {
 	errCode := Dump(prefix, buf)
 
 	if errCode != 0 {
-		t.Fatalf("Check command failed! Error code: %d", errCode)
+		t.Fatalf("Dump command failed! Error code: %d", errCode)
 	}
 	
 	return buf

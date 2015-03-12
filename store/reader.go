@@ -74,6 +74,8 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 	measures := make([]Measure, 0)
 
 	for {
+		var baseline int
+
 		arr, err := data.Read()
 		if err == io.EOF {
 			break
@@ -91,8 +93,17 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 		if err != nil {
 			return nil, err
 		}
+		
+		if len(arr) > 2 {
+			baseline, err = strconv.Atoi(arr[1])
+			if err != nil {
+				return nil, err
+			}
+		} else {
+			baseline = value
+		}
 
-		measure := Measure{Name: arr[0], Value: value}
+		measure := Measure{Name: arr[0], Value: value, Baseline: baseline}
 		measures = append(measures, measure)
 	}
 
@@ -101,7 +112,7 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 	return measures, nil
 }
 
-func CompareMeasures(hash string, storedm []Measure, computedm []Measure) error {
+func CompareMeasures(hash string, storedm []Measure, computedm []Measure, slack int) error {
 	if len(computedm) == 0 {
 		return errors.New("No measures passed to git-ratchet to compare against.")
 	}
@@ -118,6 +129,11 @@ func CompareMeasures(hash string, storedm []Measure, computedm []Measure) error 
 	for i < len(storedm) && j < len(computedm) {
 		stored := storedm[i]
 		computed := computedm[j]
+		
+		if computed.Baseline > stored.Baseline {
+			computed.Baseline = stored.Baseline
+		}
+
 		log.INFO.Printf("Checking meaures: %s %s", stored.Name, computed.Name)
 		if stored.Name < computed.Name {
 			log.ERROR.Printf("Missing computed value for stored measure: %s", stored.Name)
@@ -128,7 +144,7 @@ func CompareMeasures(hash string, storedm []Measure, computedm []Measure) error 
 			j++
 		} else {
 			// Compare the value
-			if computed.Value > stored.Value {
+			if computed.Value > (stored.Baseline + slack) {
 				log.ERROR.Printf("Measure rising: %s", computed.Name)
 				failing = append(failing, computed.Name)
 			}

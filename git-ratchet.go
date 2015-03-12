@@ -11,6 +11,7 @@ func main() {
 	var write bool
 	var verbose bool
 	var prefix string
+	var slack int
 
 	var checkCmd = &cobra.Command{
 		Use:   "check",
@@ -23,7 +24,7 @@ The most recent stored values are found by walking up the commit graph and looki
 				log.SetStdoutThreshold(log.LevelInfo)
 			}
 
-			err := ratchet.Check(prefix, write, os.Stdin)
+			err := ratchet.Check(prefix, slack, write, os.Stdin)
 			if err != 0 {
 				os.Exit(err)
 			}
@@ -31,6 +32,7 @@ The most recent stored values are found by walking up the commit graph and looki
 	}
 
 	checkCmd.Flags().BoolVarP(&write, "write", "w", false, "write values if no increase is detected. only use on your CI server.")
+	checkCmd.Flags().IntVarP(&slack, "slack", "s", 0, "slack value, increase within the range of the slack is acceptable.")
 
 	var measure string
 	var excuse string

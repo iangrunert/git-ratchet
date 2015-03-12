@@ -7,6 +7,7 @@ import (
 type Measure struct {
 	Name  string
 	Value int
+	Baseline int
 }
 
 type CommitMeasure struct {
