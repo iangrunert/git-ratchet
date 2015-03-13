@@ -6,5 +6,7 @@ deploy:
   api_key:
     secure: Jj/S9g52aUif3JjW8Yt06ub613hOGtebRARMNRgrt7JVl8XjyLWJY/Ku+yP3e/qchTAG0aACi6aiUjvrTKSBrt2AW7NTt0ArvHRabUbdrblA7Z/w6a+rmY0fF5I07qVN4iG3ADLxPREOL4N+RvX/lqWSHDmt8Tho7gwDl3vKz6w=
   file: git-ratchet
+  skip_cleanup: true
   on:
     repo: iangrunert/git-ratchet
+    tags: true
