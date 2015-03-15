@@ -50,3 +50,6 @@ section,footer {
 footer {
     text-align: center;
 }
+.right .github-fork-ribbon {
+    background-color: gray;
+}
