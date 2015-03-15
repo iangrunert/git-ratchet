@@ -21,11 +21,11 @@ _measure_,_value_
 ...
 ```
 
-It then checks the measurements against previous values stored in your git repository, and returns a non-zero exit code if the metrics have increased. Otherwise, it stores the metrics againt the current commit hash and exits.
+It then checks the measurements against previous values stored in your git repository, and returns a non-zero exit code if the measures have increased. Otherwise, it stores the measures againt the current commit hash and exits.
 
 ## How do I check my changes locally?
 
-Run ```git ratchet check``` locally. This checks the metrics against previous values but does not write the new values if they are okay.
+Run ```git ratchet check``` locally, feeding in the calculated input. This checks the measures against previous values but does not write the new values if they are okay.
 
 ## How do I see the trend over time?
 
