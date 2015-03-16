@@ -10,7 +10,7 @@ import (
 )
 
 func GitLog(ref string, commitrange string, format string) *exec.Cmd {
-	gitlog := exec.Command("git", "log", "--show-notes="+ref, `--pretty=format:'`+format+`'`, commitrange)
+	gitlog := exec.Command("git", "--no-pager", "log", "--show-notes="+ref, `--pretty=format:'`+format+`'`, commitrange)
 	log.INFO.Println(strings.Join(gitlog.Args, " "))
 	return gitlog
 }
