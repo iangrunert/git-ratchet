@@ -66,13 +66,6 @@ func Check(prefix string, slack int, write bool, input io.Reader) int {
 		}
 	}
 
-	err = gitlog.Wait()
-
-	if err != nil {
-		log.FATAL.Println("Error reading git notes %s, %s", err, stderr.Bytes())
-		return 22
-	}
-
 	log.INFO.Println("Finished reading measures stored in git")
 	return 0
 }

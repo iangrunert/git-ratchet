@@ -33,6 +33,7 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 	}
 
 	return func() (CommitMeasure, error) {
+		defer stdout.Close()
 		for {
 			// The log is of the form commithash,committer,timestamp,note
 			// If note is empty, there's no set of Measures
