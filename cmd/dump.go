@@ -37,13 +37,6 @@ func Dump(prefix string, output io.Writer) int {
 		out.Flush()
 	}
 
-	err = gitlog.Wait()
-
-	if err != nil {
-		log.FATAL.Println(err)
-		return 22
-	}
-
 	log.INFO.Println("Finished reading measures stored in git")
 	return 0
 }

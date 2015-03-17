@@ -11,6 +11,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -33,7 +34,6 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 	}
 
 	return func() (CommitMeasure, error) {
-		defer stdout.Close()
 		for {
 			// The log is of the form commithash,committer,timestamp,note
 			// If note is empty, there's no set of Measures
@@ -246,9 +246,11 @@ func GetExclusions(prefix string, hash string) ([]string, error) {
 		return []string{}, err
 	}
 
+	stdout.Close()
+
 	err = gitlog.Wait()
 
-	if err != nil {
+	if err != nil && err != syscall.EPIPE {
 		return []string{}, err
 	}
 
