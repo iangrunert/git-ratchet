@@ -230,7 +230,7 @@ func GetExclusions(prefix string, hash string) ([]string, error) {
 		record := strings.Trim(scanner.Text(), "'")
 
 		if len(record) == 0 {
-			break
+			continue
 		}
 
 		measures, err := ParseExclusion(record)
