@@ -7,10 +7,10 @@ import (
 	"io"
 )
 
-func Check(prefix string, slack int, write bool, input io.Reader) int {
+func Check(prefix string, slack int, write bool, inputType string, input io.Reader) int {
 	// Parse the measures from stdin
 	log.INFO.Println("Parsing measures from stdin")
-	passedMeasures, err := store.ParseMeasures(input)
+	passedMeasures, err := store.ParseMeasures(input, store.ParseInputType(inputType))
 	log.INFO.Println("Finished parsing measures from stdin")
 	log.INFO.Println(passedMeasures)
 	if err != nil {

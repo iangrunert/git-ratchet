@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"encoding/csv"
 	"encoding/json"
+	"encoding/xml"
 	"errors"
 	log "github.com/spf13/jwalterweatherman"
 	"io"
@@ -14,6 +15,17 @@ import (
 	"syscall"
 	"time"
 )
+
+func ParseInputType(input string) InputType {
+	switch(input) {
+	case "csv":
+		return CSV
+	case "checkstyle":
+		return Checkstyle
+	default:
+		return Unknown
+	}
+}
 
 func CommitMeasureCommand(prefix string) *exec.Cmd {
 	return GitLog("git-ratchet-1-"+prefix, "HEAD", `%H,%an <%ae>,%at,"%N",`)
@@ -52,7 +64,7 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 				return CommitMeasure{}, err
 			}
 			
-			measures, err := ParseMeasures(strings.NewReader(strings.Trim(record[3], "\\\"")))
+			measures, err := ParseMeasures(strings.NewReader(strings.Trim(record[3], "\\\"")), CSV)
 			if err != nil {
 				return CommitMeasure{}, err
 			}
@@ -67,7 +79,18 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 	}, nil
 }
 
-func ParseMeasures(r io.Reader) ([]Measure, error) {
+func ParseMeasures(r io.Reader, t InputType) ([]Measure, error) {
+	switch (t) {
+	case CSV:
+		return ParseMeasuresCSV(r)
+	case Checkstyle:
+		return ParseMeasuresCheckstyle(r)
+	default:
+		return nil, errors.New("Unknown input type")
+	}
+}
+
+func ParseMeasuresCSV(r io.Reader) ([]Measure, error) {
 	data := csv.NewReader(r)
 	data.FieldsPerRecord = -1 // Variable number of fields per record
 
@@ -110,6 +133,26 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 	sort.Sort(ByName(measures))
 
 	return measures, nil
+}
+
+func ParseMeasuresCheckstyle(r io.Reader) ([]Measure, error) {
+	decoder := xml.NewDecoder(r)
+	errors := 0
+	
+	for {
+		t, _ := decoder.Token() 
+		if t == nil { 
+			break 
+		} 
+		switch se := t.(type) { 
+		case xml.StartElement: 
+			if se.Name.Local == "error" { 
+				errors++
+			}
+		}
+	}
+	
+	return []Measure{{Name: "errors", Value: errors, Baseline: errors}}, nil
 }
 
 func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []Measure, slack int) ([]Measure, error) {

@@ -4,6 +4,14 @@ import (
 	"time"
 )
 
+type InputType int
+
+const (
+	CSV = iota
+	Checkstyle
+	Unknown
+)
+
 type Measure struct {
 	Name     string
 	Value    int
