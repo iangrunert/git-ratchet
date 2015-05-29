@@ -27,11 +27,11 @@ func TestDump(t *testing.T) {
 
 	dump.Scan()
 
-	checkString(t, "foo,4", dump.Text())
+	checkString(t, "foo,4,4", dump.Text())
 
 	dump.Scan()
 
-	checkString(t, "foo,5", dump.Text())
+	checkString(t, "foo,5,5", dump.Text())
 
 	if len(runDump(t, "bar").Bytes()) > 0 {
 		t.Fatalf("Should be no data under prefix bar")
