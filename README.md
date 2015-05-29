@@ -32,8 +32,8 @@ Run ```git ratchet check``` locally, feeding in the calculated input. This check
 Run ```git ratchet dump``` to dump a data file containing the data. This file current is currently in CSV, and looks like this:
 
 ```
-Time,Measure,Value
-_timestamp_,_measure_,_value_
+Time,Measure,Value,Baseline
+_timestamp_,_measure_,_value_,_baseline_
 ...
 ```
 
