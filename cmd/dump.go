@@ -32,7 +32,7 @@ func Dump(prefix string, output io.Writer) int {
 		out := csv.NewWriter(output)
 
 		for _, measure := range cm.Measures {
-			out.Write([]string{cm.Timestamp.String(), measure.Name, strconv.Itoa(measure.Value)})
+			out.Write([]string{cm.Timestamp.String(), measure.Name, strconv.Itoa(measure.Value), strconv.Itoa(measure.Baseline)})
 		}
 		out.Flush()
 	}
