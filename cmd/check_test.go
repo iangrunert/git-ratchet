@@ -26,7 +26,13 @@ func TestCheck(t *testing.T) {
 
 	t.Logf("Running check command w: %t i: %s", false, "foo,6")
 
-	errCode := Check("", 0, false, strings.NewReader("foo,6"))
+	errCode := Check("", 0, true, strings.NewReader("foo,6"))
+
+	if errCode != 50 {
+		t.Fatalf("Check command passed unexpectedly!")
+	}
+
+	errCode = Check("", 0, true, strings.NewReader("foo,6"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")

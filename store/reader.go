@@ -51,12 +51,12 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 			if err != nil {
 				return CommitMeasure{}, err
 			}
-
+			
 			measures, err := ParseMeasures(strings.NewReader(strings.Trim(record[3], "\\\"")))
 			if err != nil {
 				return CommitMeasure{}, err
 			}
-
+			
 			if len(measures) > 0 {
 				return CommitMeasure{CommitHash: strings.Trim(record[0], "'"),
 					Committer: record[1],
@@ -95,7 +95,7 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 		}
 
 		if len(arr) > 2 {
-			baseline, err = strconv.Atoi(arr[1])
+			baseline, err = strconv.Atoi(arr[2])
 			if err != nil {
 				return nil, err
 			}
@@ -112,13 +112,13 @@ func ParseMeasures(r io.Reader) ([]Measure, error) {
 	return measures, nil
 }
 
-func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []Measure, slack int) error {
+func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []Measure, slack int) ([]Measure, error) {
 	if len(computedm) == 0 {
-		return errors.New("No measures passed to git-ratchet to compare against.")
+		return computedm, errors.New("No measures passed to git-ratchet to compare against.")
 	}
 
 	if len(storedm) == 0 {
-		return errors.New("No stored measures to compare against.")
+		return computedm, errors.New("No stored measures to compare against.")
 	}
 
 	failing := make([]string, 0)
@@ -130,8 +130,9 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 		stored := storedm[i]
 		computed := computedm[j]
 
-		if computed.Baseline > stored.Baseline {
+		if computed.Baseline > stored.Baseline {			
 			computed.Baseline = stored.Baseline
+			computedm[i].Baseline = stored.Baseline
 		}
 
 		log.INFO.Printf("Checking meaures: %s %s", stored.Name, computed.Name)
@@ -145,7 +146,7 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 		} else {
 			// Compare the value
 			if computed.Value > (stored.Baseline + slack) {
-				log.ERROR.Printf("Measure rising: %s", computed.Name)
+				log.ERROR.Printf("Measure rising: %s, delta %d", computed.Name, (computed.Value - stored.Baseline))
 				failing = append(failing, computed.Name)
 			}
 			i++
@@ -172,7 +173,7 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 		exclusions, err := GetExclusions(prefix, hash)
 
 		if err != nil {
-			return err
+			return computedm, err
 		}
 
 		log.INFO.Printf("Total excuses %s", exclusions)
@@ -200,11 +201,11 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 		}
 
 		if missingexclusion || j < len(failing) {
-			return errors.New("One or more metrics currently failing.")
+			return computedm, errors.New("One or more metrics currently failing.")
 		}
 	}
 
-	return nil
+	return computedm, nil
 }
 
 func GetExclusions(prefix string, hash string) ([]string, error) {

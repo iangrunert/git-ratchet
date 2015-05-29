@@ -47,7 +47,7 @@ func WriteNotes(writef func(io.Writer) error, ref string) error {
 	if err != nil {
 		return fmt.Errorf("Error closing .git-ratchet-note %s", err)
 	}
-
+	
 	writenotes := exec.Command("git", "notes", "--ref="+ref, "add", "-f", "-F", notepath)
 
 	log.INFO.Println(strings.Join(writenotes.Args, " "))
