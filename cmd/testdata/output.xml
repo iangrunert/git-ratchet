@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/AddOnManager.js">
+		<error line="106" column="27" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="167" column="34" severity="warning" message="Use &apos;!==&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/ControlManager.js">
+		<error line="69" column="33" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="86" column="33" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="161" column="48" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="240" column="78" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="508" column="48" severity="warning" message="Did you mean to return a conditional instead of an assignment?" source="jshint.W093" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/Editor.js">
+		<error line="1031" column="41" severity="warning" message="&apos;dep&apos; is already defined." source="jshint.W004" />
+		<error line="1056" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1155" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="1158" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1273" column="79" severity="warning" message="Script URL." source="jshint.W107" />
+		<error line="1280" column="43" severity="warning" message="Script URL." source="jshint.W107" />
+		<error line="1750" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="1757" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1981" column="50" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="2326" column="40" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="2380" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="2416" column="44" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="2558" column="22" severity="warning" message="Value of &apos;e&apos; may be overwritten in IE 8 and earlier." source="jshint.W002" />
+		<error line="2574" column="52" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="2997" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="3030" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="3032" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="3055" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="3067" column="82" severity="warning" message="Value of &apos;ex&apos; may be overwritten in IE 8 and earlier." source="jshint.W002" />
+		<error line="3076" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="3151" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="3178" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="3226" column="61" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="3231" column="62" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="3257" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="3260" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="3325" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="3341" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="3398" column="57" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/EditorCommands.js">
+		<error line="13" column="30" severity="warning" message="Expected an identifier and instead saw &apos;undefined&apos; (a reserved word)." source="jshint.W024" />
+		<error line="42" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="48" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="61" column="47" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="65" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="78" column="47" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="82" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="99" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="119" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="123" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="127" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="131" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="135" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="197" column="29" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="436" column="108" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="564" column="25" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="578" column="23" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="579" column="23" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="588" column="72" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/EditorManager.js">
+		<error line="21" column="47" severity="warning" message="Expected an identifier and instead saw &apos;undefined&apos; (a reserved word)." source="jshint.W024" />
+		<error line="139" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="188" column="26" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="383" column="25" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="387" column="26" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/ForceBlocks.js">
+		<error line="37" column="40" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="41" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="51" column="56" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="52" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="74" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="96" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="185" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="288" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="317" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="411" column="17" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="412" column="17" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="413" column="17" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="440" column="42" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="500" column="50" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="578" column="72" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="617" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="630" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="677" column="137" severity="warning" message="&apos;n&apos; is already defined." source="jshint.W004" />
+		<error line="706" column="42" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="715" column="53" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="738" column="52" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/Formatter.js">
+		<error line="48" column="13" severity="warning" message="Expected an identifier and instead saw &apos;undefined&apos; (a reserved word)." source="jshint.W024" />
+		<error line="52" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="56" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="60" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="73" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="120" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="179" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="188" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="196" column="51" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="260" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="351" column="22" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="375" column="26" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="394" column="22" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="416" column="22" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="448" column="72" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="480" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="515" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="546" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="565" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="608" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="612" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="627" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="678" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="707" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="720" column="76" severity="warning" message="[&apos;toggle&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="724" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="775" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="785" column="53" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="796" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="818" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="837" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="866" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="897" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="934" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="952" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="975" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="995" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="999" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1008" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1064" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1116" column="21" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="1142" column="26" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1156" column="72" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="1231" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="1234" column="79" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="1252" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1261" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="1296" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1370" column="68" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="1440" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1440" column="10" severity="error" message="Too many errors. (71% scanned)." source="jshint.E043" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/LegacyInput.js">
+		<error line="17" column="9" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="24" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="51" column="9" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="59" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/Popup.js">
+		<error line="171" column="13" severity="warning" message="eval can be harmful." source="jshint.W061" />
+		<error line="211" column="17" severity="warning" message="document.write can be a form of eval." source="jshint.W060" />
+		<error line="292" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="331" column="80" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/UndoManager.js">
+		<error line="24" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="26" column="22" severity="warning" message="Did you mean to return a conditional instead of an assignment?" source="jshint.W093" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/DOMUtils.js">
+		<error line="470" column="51" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="530" column="64" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="1015" column="41" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="1015" column="37" severity="warning" message="Did you mean to return a conditional instead of an assignment?" source="jshint.W093" />
+		<error line="1233" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1416" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1481" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1625" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="1736" column="95" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="1753" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/Element.js">
+		<error line="50" column="13" severity="info" message="Comma warnings can be turned off with &apos;laxcomma&apos;." source="jshint.I001" />
+		<error line="49" column="50" severity="warning" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="178" column="169" severity="warning" message="Script URL." source="jshint.W107" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/Range.js">
+		<error line="64" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="68" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="72" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="76" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="80" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="84" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="96" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="101" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="106" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="127" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="131" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="135" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="139" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="168" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="176" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="187" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="210" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="214" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="311" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="348" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="391" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="444" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="491" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="525" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="567" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="603" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="639" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="676" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="683" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="684" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/RangeUtils.js">
+		<error line="63" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="80" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="97" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="113" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="183" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/ScriptLoader.js">
+		<error line="45" column="13" severity="warning" message="Expected an identifier and instead saw &apos;undefined&apos; (a reserved word)." source="jshint.W024" />
+		<error line="66" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="79" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="150" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="186" column="23" severity="warning" message="Use &apos;===&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+		<error line="233" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/Selection.js">
+		<error line="14" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="200" column="52" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="218" column="66" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="301" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="387" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="390" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="420" column="22" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="428" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="462" column="74" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="526" column="21" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="558" column="22" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="567" column="21" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="607" column="84" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="627" column="22" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="629" column="21" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="635" column="22" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="675" column="21" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="680" column="91" severity="warning" message="Use &apos;!==&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="698" column="80" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="699" column="22" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="778" column="35" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="926" column="25" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="1047" column="84" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="1055" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1103" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1142" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/Serializer.js">
+		<error line="131" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/Sizzle.js">
+		<error line="109" column="26" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="132" column="38" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="138" column="38" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="194" column="26" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="215" column="64" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="240" column="58" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="245" column="51" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="277" column="27" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="424" column="56" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="510" column="29" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="617" column="32" severity="warning" message="Expected a &apos;break&apos; statement before &apos;case&apos;." source="jshint.W086" />
+		<error line="667" column="34" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="674" column="27" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="730" column="77" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/TreeWalker.js">
+		<error line="36" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/dom/TridentSelection.js">
+		<error line="81" column="60" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="99" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="200" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="250" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="256" column="25" severity="warning" message="&apos;node&apos; is already defined." source="jshint.W004" />
+		<error line="278" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="292" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="327" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="350" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="443" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/html/DomParser.js">
+		<error line="129" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="270" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="271" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="286" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="303" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="578" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/html/Entities.js">
+		<error line="51" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="75" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="104" column="5" severity="info" message="Comma warnings can be turned off with &apos;laxcomma&apos;." source="jshint.I001" />
+		<error line="103" column="9" severity="warning" message="Bad line breaking before &apos;,&apos;." source="jshint.W014" />
+		<error line="199" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="203" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/html/Node.js">
+		<error line="44" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="121" column="40" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="176" column="44" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="438" column="30" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="440" column="49" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/html/SaxParser.js">
+		<error line="113" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="142" column="52" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="147" column="39" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="155" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="179" column="54" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="228" column="30" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="299" column="59" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="302" column="59" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="329" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="331" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="333" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="335" column="46" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="354" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/html/Schema.js">
+		<error line="17" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="30" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="46" column="14" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="50" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="230" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="371" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="382" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="409" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="439" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="456" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/html/Serializer.js">
+		<error line="84" column="50" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="134" column="54" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="151" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/html/Styles.js">
+		<error line="50" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="53" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="105" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="126" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="146" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="153" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="177" column="55" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="210" column="26" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="259" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/tinymce.js">
+		<error line="13" column="9" severity="warning" message="Expected an identifier and instead saw &apos;undefined&apos; (a reserved word)." source="jshint.W024" />
+		<error line="225" column="35" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="273" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="488" column="18" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="629" column="21" severity="warning" message="[&apos;static&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="746" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="766" column="50" severity="warning" message="&apos;unload&apos; is a function." source="jshint.W021" />
+		<error line="772" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="774" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="779" column="25" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="788" column="26" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="802" column="18" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/ui/ColorSplitButton.js">
+		<error line="152" column="100" severity="warning" message="[&apos;menu_class&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="164" column="23" severity="warning" message="Bad operand." source="jshint.W017" />
+		<error line="171" column="42" severity="warning" message="Script URL." source="jshint.W107" />
+		<error line="181" column="29" severity="warning" message="[&apos;role&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="201" column="96" severity="warning" message="Script URL." source="jshint.W107" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/ui/DropMenu.js">
+		<error line="291" column="34" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="433" column="43" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="441" column="127" severity="warning" message="Script URL." source="jshint.W107" />
+		<error line="470" column="39" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/ui/ListBox.js">
+		<error line="120" column="20" severity="warning" message="Use &apos;===&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+		<error line="224" column="96" severity="warning" message="Script URL." source="jshint.W107" />
+		<error line="225" column="105" severity="warning" message="Script URL." source="jshint.W107" />
+		<error line="239" column="50" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/ui/Menu.js">
+		<error line="101" column="38" severity="warning" message="Did you mean to return a conditional instead of an assignment?" source="jshint.W093" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/ui/NativeListBox.js">
+		<error line="68" column="20" severity="warning" message="Use &apos;===&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+		<error line="185" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/ui/SplitButton.js">
+		<error line="86" column="125" severity="warning" message="Script URL." source="jshint.W107" />
+		<error line="89" column="123" severity="warning" message="Script URL." source="jshint.W107" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/util/Cookie.js">
+		<error line="91" column="23" severity="warning" message="Use &apos;!==&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/util/JSON.js">
+		<error line="17" column="15" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="61" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="95" column="24" severity="warning" message="eval can be harmful." source="jshint.W061" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/util/Quirks.js">
+		<error line="84" column="86" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="87" column="84" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="113" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="151" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="166" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="187" column="11" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="297" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="318" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="342" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="348" column="35" severity="warning" message="&apos;selectControlElements&apos; is already defined." source="jshint.W004" />
+		<error line="363" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="396" column="42" severity="warning" message="&apos;ensureBodyHasRoleApplication&apos; is already defined." source="jshint.W004" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/util/URI.js">
+		<error line="66" column="31" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="153" column="19" severity="warning" message="&apos;u&apos; is already defined." source="jshint.W004" />
+		<error line="233" column="36" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/util/VK.js">
+		<error line="17" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/classes/util/XHR.js">
+		<error line="51" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="68" column="13" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="78" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/plugins/autoresize/editor_plugin_src.js">
+		<error line="76" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/plugins/lists/editor_plugin_src.js">
+		<error line="12" column="74" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="167" column="25" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="176" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="180" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="355" column="55" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="407" column="26" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="455" column="29" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="456" column="29" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="457" column="29" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="531" column="109" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="533" column="56" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="578" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="684" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="720" column="53" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="722" column="52" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="793" column="31" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="837" column="33" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="993" column="31" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="1040" column="23" severity="warning" message="&apos;e&apos; is already defined." source="jshint.W004" />
+		<error line="1104" column="35" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="1195" column="21" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="1195" column="99" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="1254" column="43" severity="warning" message="Confusing use of &apos;!&apos;." source="jshint.W018" />
+		<error line="1316" column="29" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="1318" column="42" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/plugins/table/editor_plugin_src.js">
+		<error line="27" column="123" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="28" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="103" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="111" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="126" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="141" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="152" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="193" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="200" column="37" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="205" column="48" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="215" column="38" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="221" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="234" column="56" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="277" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="302" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="305" column="75" severity="warning" message="&apos;cell&apos; is already defined." source="jshint.W004" />
+		<error line="324" column="24" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="356" column="30" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="365" column="34" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="377" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="465" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="487" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="506" column="22" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="540" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="567" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="592" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="643" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="682" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="701" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="717" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="727" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="799" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="862" column="26" severity="warning" message="&apos;i&apos; is already defined." source="jshint.W004" />
+		<error line="930" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="954" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="969" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="977" column="30" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="977" column="49" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="985" column="28" severity="warning" message="&apos;y1&apos; is already defined." source="jshint.W004" />
+		<error line="991" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1008" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1012" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1051" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1122" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1152" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1166" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1176" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="1314" column="25" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="1319" column="95" severity="warning" message="Use &apos;!==&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="1337" column="84" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="1337" column="84" severity="error" message="Too many errors. (68% scanned)." source="jshint.E043" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/plugins/table/js/cell.js">
+		<error line="11" column="110" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="105" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="108" column="47" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="127" column="46" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="132" column="37" severity="warning" message="&apos;cell&apos; is already defined." source="jshint.W004" />
+		<error line="141" column="46" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="156" column="50" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="162" column="22" severity="warning" message="&apos;rows&apos; is already defined." source="jshint.W004" />
+		<error line="164" column="23" severity="warning" message="&apos;i&apos; is already defined." source="jshint.W004" />
+		<error line="165" column="26" severity="warning" message="&apos;cell&apos; is already defined." source="jshint.W004" />
+		<error line="172" column="50" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="185" column="36" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="222" column="35" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="224" column="53" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="225" column="53" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="231" column="39" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="269" column="15" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="270" column="11" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="272" column="11" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="275" column="16" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="276" column="11" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="278" column="11" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="302" column="11" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="303" column="42" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="305" column="11" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="306" column="43" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/plugins/table/js/row.js">
+		<error line="30" column="67" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="103" column="22" severity="warning" message="&apos;rows&apos; is already defined." source="jshint.W004" />
+		<error line="105" column="23" severity="warning" message="&apos;i&apos; is already defined." source="jshint.W004" />
+		<error line="106" column="28" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="106" column="63" severity="warning" message="Use &apos;!==&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="147" column="39" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="166" column="23" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="206" column="11" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="207" column="43" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="220" column="16" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="221" column="11" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="223" column="11" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/plugins/table/js/table.js">
+		<error line="22" column="31" severity="warning" message="[&apos;heading&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="26" column="28" severity="warning" message="[&apos;cols&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="27" column="28" severity="warning" message="[&apos;rows&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="56" column="9" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="62" column="18" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="153" column="47" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="160" column="15" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="182" column="90" severity="warning" message="&apos;bgcolor&apos; is already defined." source="jshint.W004" />
+		<error line="182" column="108" severity="warning" message="&apos;bordercolor&apos; is already defined." source="jshint.W004" />
+		<error line="194" column="18" severity="warning" message="&apos;cols&apos; is already defined." source="jshint.W004" />
+		<error line="278" column="16" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="279" column="11" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="281" column="11" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="314" column="30" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="314" column="101" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="318" column="15" severity="warning" message="[&apos;border&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="332" column="35" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="352" column="11" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="353" column="42" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="355" column="11" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="356" column="43" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/plugins/template/editor_plugin_src.js">
+		<error line="84" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/plugins/template/js/template.js">
+		<error line="7" column="17" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="8" column="13" severity="warning" message="document.write can be a form of eval." source="jshint.W060" />
+		<error line="58" column="30" severity="warning" message="[&apos;templatesrc&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="88" column="23" severity="warning" message="Value of &apos;s&apos; may be overwritten in IE 8 and earlier." source="jshint.W002" />
+		<error line="92" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="97" column="51" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/themes/atlassian/editor_template.js">
+		<error line="186" column="80" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="214" column="66" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="247" column="18" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="260" column="31" severity="warning" message="[&apos;theme_advanced_buttons1&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="358" column="34" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="359" column="34" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="359" column="45" severity="warning" message="[&apos;state&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="360" column="34" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="360" column="45" severity="warning" message="[&apos;click&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="361" column="34" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="361" column="45" severity="warning" message="[&apos;click&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="376" column="34" severity="warning" message="[&apos;formatselect&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="377" column="34" severity="warning" message="[&apos;formatselect&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="377" column="50" severity="warning" message="[&apos;state&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="378" column="34" severity="warning" message="[&apos;formatselect&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="378" column="50" severity="warning" message="[&apos;click&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="379" column="34" severity="warning" message="[&apos;formatselect&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="379" column="50" severity="warning" message="[&apos;click&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="390" column="37" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="390" column="48" severity="warning" message="[&apos;state&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="391" column="37" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="391" column="48" severity="warning" message="[&apos;state&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="399" column="38" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="399" column="49" severity="warning" message="[&apos;state&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="412" column="34" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="412" column="45" severity="warning" message="[&apos;state&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="416" column="38" severity="warning" message="[&apos;formatselect&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="416" column="54" severity="warning" message="[&apos;state&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/utils/editable_selects.js">
+		<error line="52" column="42" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/utils/form_utils.js">
+		<error line="16" column="72" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="90" column="39" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="91" column="20" severity="warning" message="&apos;option&apos; is already defined." source="jshint.W004" />
+		<error line="103" column="13" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="103" column="36" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="125" column="26" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="187" column="14" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="203" column="13" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/utils/mctabs.js">
+		<error line="14" column="2" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/atlassian-tinymce/src/main/resources/jscripts/tiny_mce/utils/validate.js">
+		<error line="70" column="18" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="135" column="18" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="146" column="15" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="219" column="34" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="219" column="63" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="224" column="29" severity="warning" message="Did you mean to return a conditional instead of an assignment?" source="jshint.W093" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/analytics/editor-analytics.js">
+		<error line="81" column="15" severity="warning" message="[&apos;pageID&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/autoformat/wiki-autoformat-oninit-rte.js">
+		<error line="73" column="47" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="79" column="18" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="296" column="39" severity="warning" message="The array literal notation [] is preferable." source="jshint.W009" />
+		<error line="327" column="20" severity="warning" message="&apos;i&apos; is already defined." source="jshint.W004" />
+		<error line="332" column="14" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="396" column="57" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="418" column="57" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="429" column="148" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="492" column="29" severity="warning" message="Confusing use of &apos;!&apos;." source="jshint.W018" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/breadcrumbs/tinymce-breadcrumbs-oninit-rte.js">
+		<error line="16" column="13" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="25" column="13" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="40" column="15" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/com/atlassian/confluence/tinymceplugin/tinyMce-auiwindowmanager.js">
+		<error line="43" column="44" severity="warning" message="The array literal notation [] is preferable." source="jshint.W009" />
+		<error line="139" column="96" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="140" column="79" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="157" column="34" severity="warning" message="Use &apos;!==&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+		<error line="175" column="32" severity="warning" message="Use &apos;===&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+		<error line="179" column="52" severity="warning" message="Use &apos;!==&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+		<error line="223" column="38" severity="warning" message="Use &apos;===&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+		<error line="290" column="28" severity="warning" message="&apos;dialog&apos; is already defined." source="jshint.W004" />
+		<error line="394" column="28" severity="warning" message="&apos;busyId&apos; is already defined." source="jshint.W004" />
+		<error line="395" column="31" severity="warning" message="&apos;busyPanel&apos; is already defined." source="jshint.W004" />
+		<error line="400" column="31" severity="warning" message="&apos;contentId&apos; is already defined." source="jshint.W004" />
+		<error line="401" column="29" severity="warning" message="&apos;content&apos; is already defined." source="jshint.W004" />
+		<error line="432" column="35" severity="warning" message="Use &apos;!==&apos; to compare with &apos;false&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/drafts/page-editor-drafts.js">
+		<error line="13" column="19" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="54" column="44" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="140" column="35" severity="warning" message="[&apos;errors&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="187" column="25" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="224" column="21" severity="warning" message="Confusing use of &apos;!&apos;." source="jshint.W018" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/editor/atlassian-editor-content.js">
+		<error line="91" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/editor/atlassian-editor.js">
+		<error line="110" column="46" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="113" column="46" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="115" column="42" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/editor/page-editor.js">
+		<error line="20" column="20" severity="warning" message="&apos;i&apos; is already defined." source="jshint.W004" />
+		<error line="25" column="20" severity="warning" message="&apos;i&apos; is already defined." source="jshint.W004" />
+		<error line="54" column="72" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="165" column="37" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="190" column="101" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="268" column="66" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="363" column="104" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="393" column="20" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="396" column="52" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="447" column="115" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="561" column="72" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="600" column="38" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/event/tinyMce-eventDelegator.js">
+		<error line="22" column="66" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="44" column="22" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="44" column="24" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="45" column="24" severity="warning" message="Confusing use of &apos;!&apos;." source="jshint.W018" />
+		<error line="50" column="26" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="50" column="27" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/files/attachments-panel/attachments-panel-view.js">
+		<error line="124" column="26" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/files/base-panel/base-panel-view.js">
+		<error line="33" column="46" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/files/file-item/file-item-model.js">
+		<error line="125" column="29" severity="warning" message="Bad line breaking before &apos;?&apos;." source="jshint.W014" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/files/file-list/file-list-collection.js">
+		<error line="13" column="69" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/files/file-list/file-list-view.js">
+		<error line="91" column="76" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="234" column="52" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/loader/tinymce-adapter.js">
+		<error line="144" column="30" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/loader/tinymce-bootstrap.js">
+		<error line="118" column="32" severity="warning" message="Use &apos;===&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/oninit/tinymce-cursor-fixes.js">
+		<error line="11" column="46" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="161" column="10" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="178" column="10" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/support/atlassian-editor-support.js">
+		<error line="7" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tests/file-item-test.js">
+		<error line="330" column="21" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="345" column="21" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/overrides/DOMUtils.js">
+		<error line="26" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/autocomplete/tinyMce-autocomplete-control.js">
+		<error line="54" column="18" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="61" column="18" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="108" column="34" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="134" column="133" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="135" column="26" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="143" column="60" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="184" column="13" severity="warning" message="&apos;range&apos; used out of scope." source="jshint.W038" />
+		<error line="185" column="13" severity="warning" message="&apos;range&apos; used out of scope." source="jshint.W038" />
+		<error line="186" column="13" severity="warning" message="&apos;range&apos; used out of scope." source="jshint.W038" />
+		<error line="187" column="30" severity="warning" message="&apos;range&apos; used out of scope." source="jshint.W038" />
+		<error line="237" column="63" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="292" column="18" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="303" column="18" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="363" column="38" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/autocomplete/tinyMce-autocomplete-manager.js">
+		<error line="50" column="70" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="150" column="63" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="185" column="67" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="187" column="21" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="268" column="91" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="288" column="46" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="296" column="49" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="309" column="46" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/autocomplete/tinyMce-autocomplete-settings.js">
+		<error line="16" column="33" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="17" column="30" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="19" column="46" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/autocomplete/tinyMce-autocomplete-util.js">
+		<error line="15" column="77" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/autocomplete-link/tinyMce-autocomplete-settings-links.js">
+		<error line="89" column="110" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/autocomplete-macro/tinyMce-autocomplete-settings-macros.js">
+		<error line="123" column="76" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/autocomplete-media/tinyMce-autocomplete-settings-media.js">
+		<error line="56" column="25" severity="warning" message="Bad line breaking before &apos;?&apos;." source="jshint.W014" />
+		<error line="109" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confcharmap/charmap.js">
+		<error line="286" column="26" severity="warning" message="Use &apos;===&apos; to compare with &apos;true&apos;." source="jshint.W041" />
+		<error line="289" column="17" severity="warning" message="Bad line breaking before &apos;+&apos;." source="jshint.W014" />
+		<error line="290" column="17" severity="warning" message="Bad line breaking before &apos;+&apos;." source="jshint.W014" />
+		<error line="291" column="17" severity="warning" message="Bad line breaking before &apos;+&apos;." source="jshint.W014" />
+		<error line="292" column="17" severity="warning" message="Bad line breaking before &apos;+&apos;." source="jshint.W014" />
+		<error line="293" column="40" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="300" column="19" severity="warning" message="&apos;i&apos; is already defined." source="jshint.W004" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confcleanup/editor_plugin_src.js">
+		<error line="56" column="69" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="58" column="73" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="83" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confcursortarget/editor_plugin_src.js">
+		<error line="22" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="122" column="25" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="123" column="25" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="128" column="25" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="129" column="25" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="405" column="84" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="456" column="21" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="457" column="21" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="469" column="87" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="476" column="44" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="493" column="29" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="610" column="79" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confluence/editor_plugin_src.js">
+		<error line="38" column="53" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confluencelist/editor_plugin_src.js">
+		<error line="45" column="21" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="88" column="14" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confluencepaste/clipboard-helper.js">
+		<error line="15" column="117" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="27" column="108" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confluencepaste/editor_plugin_src.js">
+		<error line="137" column="59" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="160" column="112" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="185" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="190" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="342" column="21" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="479" column="58" severity="warning" message="Use &apos;===&apos; to compare with &apos;false&apos;." source="jshint.W041" />
+		<error line="541" column="97" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="677" column="17" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+		<error line="710" column="58" severity="warning" message="Use &apos;===&apos; to compare with &apos;false&apos;." source="jshint.W041" />
+		<error line="931" column="67" severity="warning" message="Use &apos;!==&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confluencepaste/linkify.js">
+		<error line="99" column="38" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confluencepaste/post-paste-node-filter.js">
+		<error line="151" column="21" severity="warning" message="[&apos;p&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="152" column="21" severity="warning" message="[&apos;span&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="153" column="21" severity="warning" message="[&apos;pre&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="154" column="21" severity="warning" message="[&apos;td&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="154" column="42" severity="warning" message="[&apos;th&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="208" column="52" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="242" column="46" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="246" column="52" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confluencepastemacro/editor_plugin_src.js">
+		<error line="23" column="14" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="64" column="121" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="68" column="65" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/confluencepastetable/editor_plugin_src.js">
+		<error line="102" column="84" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="109" column="101" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="115" column="68" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="118" column="85" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="180" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/conftable/editor_plugin_src.js">
+		<error line="40" column="14" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/customtoolbar/chunky-tips.js">
+		<error line="3" column="60" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="57" column="32" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="76" column="11" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/customtoolbar/custom-toolbar-components.js">
+		<error line="187" column="2" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="209" column="54" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="210" column="68" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="245" column="31" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="246" column="51" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="247" column="61" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="281" column="54" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="282" column="68" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="292" column="68" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/customtoolbar/editor_plugin_src.js">
+		<error line="31" column="27" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="114" column="41" severity="warning" message="[&apos;formatselect&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="114" column="57" severity="warning" message="[&apos;click&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="117" column="41" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="117" column="52" severity="warning" message="[&apos;click&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="207" column="134" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="215" column="18" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="240" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="262" column="23" severity="warning" message="&apos;toolbarId&apos; is already defined." source="jshint.W004" />
+		<error line="273" column="21" severity="warning" message="Use &apos;===&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+		<error line="306" column="21" severity="warning" message="Use &apos;===&apos; to compare with &apos;undefined&apos;." source="jshint.W041" />
+		<error line="502" column="32" severity="warning" message="[&apos;state&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="521" column="51" severity="warning" message="[&apos;buttons&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="524" column="24" severity="warning" message="[&apos;state&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="547" column="36" severity="warning" message="[&apos;click&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/customtoolbar/thirdpartycode/tipsy.js">
+		<error line="44" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/customtoolbar/tinyMce-table-toolbar.js">
+		<error line="131" column="52" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/draggable/editor_plugin_src.js">
+		<error line="335" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="412" column="90" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="445" column="77" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/flextofullsize/editor_plugin_src.js">
+		<error line="16" column="90" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="18" column="53" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/highlightnode/editor_plugin_src.js">
+		<error line="18" column="20" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="19" column="20" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="36" column="61" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="46" column="60" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="47" column="19" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="57" column="61" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/insertwiki/editor_plugin_src.js">
+		<error line="122" column="32" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/macroplaceholder/editor_plugin_src.js">
+		<error line="263" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="304" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="309" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="354" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="393" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="400" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="401" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="402" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="403" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="404" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="406" column="131" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="434" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="441" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="442" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="443" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="444" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="445" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="447" column="133" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="462" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="483" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="484" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="485" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="529" column="33" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+		<error line="542" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="552" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="553" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="554" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="555" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="566" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="567" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="568" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="569" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="580" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="581" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="582" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="583" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="594" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="595" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="596" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="597" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="636" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="651" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="652" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="653" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="721" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="748" column="18" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/placeholder/editor_plugin_src.js">
+		<error line="62" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/placeholder/placeholder.js">
+		<error line="14" column="43" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="35" column="79" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/placeholder/tinyMce-property-panel-text-placeholders.js">
+		<error line="70" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/propertypanel/editor_plugin_src.js">
+		<error line="7" column="35" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="78" column="30" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="97" column="90" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/propertypanel/js/tinyMce-property-panel-images.js">
+		<error line="33" column="28" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="86" column="34" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="87" column="27" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="89" column="34" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="90" column="27" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="157" column="23" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="158" column="23" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="293" column="34" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="297" column="34" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="307" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="321" column="16" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="322" column="16" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="331" column="25" severity="warning" message="&apos;img&apos; is already defined." source="jshint.W004" />
+		<error line="334" column="26" severity="warning" message="&apos;img&apos; used out of scope." source="jshint.W038" />
+		<error line="335" column="65" severity="warning" message="&apos;img&apos; used out of scope." source="jshint.W038" />
+		<error line="358" column="63" severity="warning" message="[&apos;width&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="358" column="100" severity="warning" message="[&apos;height&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="445" column="75" severity="warning" message="&apos;img&apos; used out of scope." source="jshint.W038" />
+		<error line="454" column="100" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/propertypanel/js/tinyMce-property-panel-links.js">
+		<error line="22" column="66" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/propertypanel/js/tinyMce-property-panel-macros.js">
+		<error line="117" column="26" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="190" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="191" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/searchreplace/editor_plugin_src.js">
+		<error line="157" column="15" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="162" column="23" severity="warning" message="[&apos;wysiwygTextarea_ifr&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="182" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="189" column="25" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="206" column="68" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/searchreplace/searchreplace.js">
+		<error line="124" column="23" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="153" column="22" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="367" column="31" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="643" column="31" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="738" column="38" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="1129" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="1279" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/searchreplace/tinyMce-search-toolbar.js">
+		<error line="42" column="19" severity="warning" message="[&apos;wysiwygTextarea_ifr&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/table/atlassian-table-migration.js">
+		<error line="70" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/table/atlassian-table-picker.js">
+		<error line="34" column="73" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="76" column="9" severity="warning" message="&apos;calculatePopupOffset&apos; is a function." source="jshint.W021" />
+		<error line="128" column="74" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="179" column="224" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="186" column="76" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="191" column="78" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="198" column="76" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="203" column="78" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="210" column="72" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="245" column="115" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="262" column="47" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="267" column="98" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="280" column="27" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="284" column="46" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/tinymce3/plugins/table/atlassian-table.js">
+		<error line="166" column="35" severity="warning" message="Use &apos;!==&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="223" column="39" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="452" column="9" severity="warning" message="Function declarations should not be placed in blocks. Use a function expression or move the statement to the top of the outer function." source="jshint.W082" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/utils/editor-utils.js">
+		<error line="71" column="56" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="122" column="55" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="129" column="21" severity="warning" message="Bad line breaking before &apos;||&apos;." source="jshint.W014" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/utils/tinymce-image-utils.js">
+		<error line="148" column="42" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="197" column="34" severity="warning" message="Missing &apos;()&apos; invoking a constructor." source="jshint.W058" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/utils/tinymce-macro-utils.js">
+		<error line="20" column="14" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="149" column="29" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor/src/main/resources/utils/tinymce-node-utils.js">
+		<error line="37" column="14" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="228" column="69" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="234" column="67" severity="warning" message="Expected a conditional expression and instead saw an assignment." source="jshint.W084" />
+		<error line="242" column="53" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="455" column="62" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="461" column="55" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor-loader/src/main/resources/jscripts/editor-loader.js">
+		<error line="29" column="14" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="136" column="127" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor-reliable-save/src/main/resources/js/ajax-login.js">
+		<error line="30" column="13" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="31" column="13" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="32" column="13" severity="warning" message="Bad line breaking before &apos;&amp;&amp;&apos;." source="jshint.W014" />
+		<error line="64" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="84" column="18" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="87" column="18" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="96" column="56" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="116" column="51" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="144" column="19" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="178" column="11" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-editor-reliable-save/src/main/resources/js/reliable-save.js">
+		<error line="31" column="42" severity="warning" message="Use &apos;!==&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-link-browser/src/main/resources/js/link-browser-location.js">
+		<error line="58" column="28" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="176" column="109" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="202" column="14" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="238" column="66" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-link-browser/src/main/resources/js/link-browser-tab-search.js">
+		<error line="23" column="101" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="59" column="48" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-link-browser/src/main/resources/js/link-browser-tab-weblink.js">
+		<error line="18" column="61" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-link-browser/src/main/resources/js/link-browser.js">
+		<error line="21" column="54" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="134" column="14" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="161" column="19" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-link-browser/src/main/resources/js/link-object.js">
+		<error line="298" column="2" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-macro-browser/src/main/resources/js/macro-browser-UI.js">
+		<error line="217" column="26" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="228" column="78" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="232" column="32" severity="warning" message="Use &apos;!==&apos; to compare with &apos;&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-macro-browser/src/main/resources/js/macro-browser-editor.js">
+		<error line="201" column="28" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="207" column="23" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="218" column="23" severity="warning" message="Use &apos;===&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="221" column="23" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+		<error line="298" column="62" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-macro-browser/src/main/resources/js/macro-browser-fields.js">
+		<error line="42" column="136" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="84" column="191" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="86" column="26" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+		<error line="115" column="96" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="126" column="56" severity="warning" message="[&apos;string&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="151" column="91" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="161" column="56" severity="warning" message="[&apos;string&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="253" column="56" severity="warning" message="[&apos;string&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="276" column="88" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="368" column="56" severity="warning" message="[&apos;string&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-macro-browser/src/main/resources/js/macro-browser-rest.js">
+		<error line="33" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="49" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-macro-browser/src/main/resources/js/macro-browser-smartfields.js">
+		<error line="78" column="57" severity="warning" message="[&apos;attachment&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="95" column="57" severity="warning" message="[&apos;full_attachment&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-macro-browser/src/main/resources/js/macro-browser.js">
+		<error line="67" column="106" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="92" column="44" severity="warning" message="Did you mean to return a conditional instead of an assignment?" source="jshint.W093" />
+		<error line="158" column="47" severity="warning" message="Use &apos;!==&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-macro-browser/src/main/resources/js/macro-parameter-serializer.js">
+		<error line="28" column="22" severity="warning" message="Creating global &apos;for&apos; variable. Should be &apos;for (var paramName ...&apos;." source="jshint.W088" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-page-layout/src/main/resources/js/pagelayout/page-layout-2.js">
+		<error line="454" column="10" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-page-layout/src/main/resources/js/pagelayout/page-layout.js">
+		<error line="63" column="84" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="64" column="84" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="77" column="49" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="84" column="13" severity="warning" message="Bad line breaking before &apos;?&apos;." source="jshint.W014" />
+		<error line="184" column="10" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="297" column="25" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="319" column="99" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="336" column="55" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-page-layout/src/main/resources/js/pagelayout/tinymce-page-layout-toolbar.js">
+		<error line="78" column="14" severity="warning" message="Don&apos;t make functions within a loop." source="jshint.W083" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-page-layout/src/main/resources/js/pagelayout/tinymce-page-layout.js">
+		<error line="228" column="14" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-paste/src/main/resources/js/autoconvert/tinymce-autoconvert.js">
+		<error line="17" column="78" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="34" column="18" severity="warning" message="&apos;node&apos; is already defined." source="jshint.W004" />
+		<error line="54" column="65" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="80" column="18" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="110" column="53" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="229" column="6" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="251" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-paste/src/main/resources/js/autoconvert/transformers/confluencepaste.js">
+		<error line="28" column="10" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-paste/src/main/resources/js/autoconvert/transformers/openphoto.js">
+		<error line="17" column="59" severity="warning" message="[&apos;path600x600&apos;] is better written in dot notation." source="jshint.W069" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-paste/src/main/resources/js/autoconvert/transformers/shortcutlinks.js">
+		<error line="18" column="50" severity="warning" message="[&apos;configurations&apos;] is better written in dot notation." source="jshint.W069" />
+		<error line="33" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-paste/src/main/resources/js/autoconvert/transformers/skitchpaste.js">
+		<error line="20" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-paste/src/main/resources/js/clipboard-access.js">
+		<error line="131" column="92" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="175" column="14" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-quick-edit/src/main/resources/jscripts/comment-display-manager.js">
+		<error line="30" column="31" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="79" column="38" severity="warning" message="Use &apos;===&apos; to compare with &apos;0&apos;." source="jshint.W041" />
+		<error line="98" column="39" severity="warning" message="&apos;$renderedTemplate&apos; is already defined." source="jshint.W004" />
+		<error line="186" column="26" severity="warning" message="Use &apos;!==&apos; to compare with &apos;null&apos;." source="jshint.W041" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-quick-edit/src/main/resources/jscripts/editor-comment-manager.js">
+		<error line="13" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="17" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="21" column="10" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+		<error line="152" column="105" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-quick-edit/src/main/resources/jscripts/handlers/comment/reply.js">
+		<error line="168" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-quick-edit/src/main/resources/jscripts/handlers/comment/top-level.js">
+		<error line="135" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-quick-edit/src/main/resources/jscripts/handlers/comment.js">
+		<error line="11" column="5" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="132" column="18" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="136" column="36" severity="warning" message="Use &apos;===&apos; to compare with &apos;&apos;." source="jshint.W041" />
+		<error line="282" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-quick-edit/src/main/resources/jscripts/handlers/shortcut.js">
+		<error line="34" column="45" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="59" column="14" severity="warning" message="Missing semicolon." source="jshint.W033" />
+		<error line="61" column="6" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-quick-edit/src/main/resources/jscripts/quick-edit.js">
+		<error line="286" column="60" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="305" column="79" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="314" column="85" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+	</file>
+	<file name="/Users/ian/src/atlassian/confluence/confluence-plugins/confluence-editor-plugins/confluence-quick-edit/src/main/resources/jscripts/scroll-util.js">
+		<error line="27" column="14" severity="warning" message="Unnecessary semicolon." source="jshint.W032" />
+	</file>
+</checkstyle>
