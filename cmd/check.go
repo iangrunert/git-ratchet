@@ -49,11 +49,9 @@ func Check(prefix string, slack int, write bool, input io.Reader) int {
 	} else {
 		log.INFO.Println(commitmeasure.Measures)
 		log.INFO.Println("Checking passed measure against stored value")
-		err = store.CompareMeasures(prefix, commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures, slack)
-		if err != nil {
-			log.FATAL.Println(err)
-			return 50
-		} else if write {
+		compareErr := store.CompareMeasures(prefix, commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures, slack)
+
+		if write {
 			log.INFO.Println("Writing measure values.")
 			err = store.PutMeasures(prefix, passedMeasures)
 			if err != nil {
@@ -61,6 +59,10 @@ func Check(prefix string, slack int, write bool, input io.Reader) int {
 				return 30
 			}
 			log.INFO.Println("Successfully written measures.")
+		}
+		if compareErr != nil {
+			log.FATAL.Println(err)
+			return 50
 		} else {
 			log.INFO.Println("Metrics passing!")
 		}
