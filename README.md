@@ -12,7 +12,7 @@ Or perhaps you are attempting to perform a library upgrade, but there are a larg
 
 ## How do I do I get started?
 
-Download the [!latest official release](https://github.com/iangrunert/git-ratchet/releases/latest) for your platform.
+Download the [latest official release](https://github.com/iangrunert/git-ratchet/releases/latest) for your platform.
 
 Rename the binary to git-ratchet, put it on your $PATH, and make it executable.
 
