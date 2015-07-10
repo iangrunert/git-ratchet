@@ -11,4 +11,4 @@ script:
   - go test -v ./...
 after_success:
   - scripts/build.sh
-  - ghr --username iangrunert --token $GITHUB_TOKEN --replace --prerelease --debug pre-release pkg/
+  - ghr --username iangrunert --token $GITHUB_TOKEN --replace --prerelease --debug pre-release dist/
