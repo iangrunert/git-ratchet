@@ -18,6 +18,8 @@ func TestDump(t *testing.T) {
 
 	repo := createEmptyGitRepo(t)
 
+	runCommand(t, repo, exec.Command("git", "notes", "add", "-m", `"Hello"`))
+
 	runCheckP(t, "foo", true, "foo,5")
 	runCommand(t, repo, exec.Command("git", "add", createFile(t, repo, "bar.txt").Name()))
 	runCommand(t, repo, exec.Command("git", "commit", "-m", "Third Commit"))
