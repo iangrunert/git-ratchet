@@ -22,10 +22,10 @@ gox \
     -os="${XC_OS}" \
     -arch="${XC_ARCH}" \
     -ldflags "-X main.GitTag ${VERSION}" \
-    -output "pkg/{{.OS}}{{.Arch}}{{.Dir}}" \
+    -output "dist/{{.OS}}{{.Arch}}{{.Dir}}" \
     ./...
 
 # Done!
 echo
 echo "==> Results:"
-ls -hl pkg/*
+ls -hl dist/*
