@@ -22,7 +22,7 @@ gox \
     -os="${XC_OS}" \
     -arch="${XC_ARCH}" \
     -ldflags "-X main.GitTag ${VERSION}" \
-    -output "pkg/{{.OS}}_{{.Arch}}/{{.Dir}}" \
+    -output "pkg/{{.OS}}{{.Arch}}{{.Dir}}" \
     ./...
 
 # Done!
