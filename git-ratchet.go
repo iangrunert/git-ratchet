@@ -5,7 +5,10 @@ import (
 	"github.com/spf13/cobra"
 	log "github.com/spf13/jwalterweatherman"
 	"os"
+	"fmt"
 )
+
+var GitTag string // Will be passed to the compiler by scripts/build.sh
 
 func main() {
 	var write bool
@@ -13,6 +16,15 @@ func main() {
 	var prefix string
 	var slack int
 	var inputType string
+
+	var versionCmd = &cobra.Command{
+		Use:   "version",
+		Short: "Print the version number",
+		Long:  `All software has versions.`,
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Printf("git-ratchet version: %s\n", GitTag)
+		},
+	}
 
 	var checkCmd = &cobra.Command{
 		Use:   "check",
@@ -75,7 +87,7 @@ The most recent stored values are found by walking up the commit graph and looki
 	}
 
 	var rootCmd = &cobra.Command{Use: "git-ratchet"}
-	rootCmd.AddCommand(checkCmd, excuseCmd, dumpCmd)
+	rootCmd.AddCommand(checkCmd, excuseCmd, dumpCmd, versionCmd)
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "increase logging verbosity.")
 	rootCmd.PersistentFlags().StringVarP(&prefix, "prefix", "p", "master", "prefix the ratchet notes. useful for storing multiple sets of values in the same repo.")
 
