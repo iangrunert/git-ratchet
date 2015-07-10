@@ -12,7 +12,7 @@ DIR="$( cd -P "$( dirname "$SOURCE" )/.." && pwd )"
 cd "$DIR"
 
 # Get latest tag
-VERSION=$(git describe  --abbrev=0 --tags --match="v.*")
+VERSION=$(git describe  --abbrev=0 --tags --match="v*")
 
 # Determine the arch/os combos we're building for
 XC_ARCH=${XC_ARCH:-"386 amd64 arm"}
