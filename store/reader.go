@@ -155,16 +155,13 @@ func ParseMeasuresCheckstyle(r io.Reader) ([]Measure, error) {
 	return []Measure{{Name: "errors", Value: errors, Baseline: errors}}, nil
 }
 
-func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []Measure, slack int) ([]Measure, error) {
-	if len(computedm) == 0 {
-		return computedm, errors.New("No measures passed to git-ratchet to compare against.")
-	}
-
+func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []Measure, slack int, zeroOnMissing bool) ([]Measure, error) {
 	if len(storedm) == 0 {
 		return computedm, errors.New("No stored measures to compare against.")
 	}
 
 	failing := make([]string, 0)
+	zeroMes := make([]Measure, 0)
 
 	i := 0
 	j := 0
@@ -181,7 +178,11 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 		log.INFO.Printf("Checking meaures: %s %s", stored.Name, computed.Name)
 		if stored.Name < computed.Name {
 			log.ERROR.Printf("Missing computed value for stored measure: %s", stored.Name)
-			failing = append(failing, stored.Name)
+			if zeroOnMissing {
+				zeroMes = append(zeroMes, Measure{Name: stored.Name, Value: 0, Baseline: 0})
+			} else {
+				failing = append(failing, stored.Name)
+			}
 			i++
 		} else if computed.Name < stored.Name {
 			log.WARN.Printf("New measure found: %s", computed.Name)
@@ -200,7 +201,11 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 	for i < len(storedm) {
 		stored := storedm[i]
 		log.ERROR.Printf("Missing computed value for stored measure: %s", stored.Name)
-		failing = append(failing, stored.Name)
+		if zeroOnMissing {
+			zeroMes = append(zeroMes, Measure{Name: stored.Name, Value: 0, Baseline: 0})
+		} else {
+			failing = append(failing, stored.Name)
+		}
 		i++
 	}
 
@@ -247,6 +252,9 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 			return computedm, errors.New("One or more metrics currently failing.")
 		}
 	}
+	
+	computedm = append(computedm, zeroMes...)
+	sort.Sort(ByName(computedm))
 
 	return computedm, nil
 }

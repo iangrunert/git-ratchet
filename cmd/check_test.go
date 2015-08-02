@@ -35,16 +35,43 @@ func TestCheck(t *testing.T) {
 
 	t.Logf("Running check command w: %t i: %s", false, "foo,6")
 
-	errCode := Check("", 0, true, "csv", strings.NewReader("foo,6"))
+	errCode := Check("", 0, true, "csv", false, strings.NewReader("foo,6"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
 	}
 
-	errCode = Check("", 0, true, "csv", strings.NewReader("foo,6"))
+	errCode = Check("", 0, true, "csv", false, strings.NewReader("foo,6"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
+	}
+}
+
+func TestZeroMissing(t *testing.T) {
+	if testing.Verbose() {
+		log.SetLogThreshold(log.LevelInfo)
+		log.SetStdoutThreshold(log.LevelInfo)
+	}
+	
+	createEmptyGitRepo(t)
+
+	runCheck(t, true, "foo,5")
+
+	t.Logf("Running check command w: %t i: %s", false, "")
+
+	errCode := Check("", 0, true, "csv", false, strings.NewReader(""))
+
+	if errCode != 50 {
+		t.Fatalf("Check command passed unexpectedly!")
+	}
+
+	t.Logf("Running check command zero on missing w: %t i: %s", false, "")
+
+	errCode = Check("", 0, true, "csv", false, strings.NewReader(""))
+
+	if errCode != 0 {
+		t.Fatalf("Check command failed unexpectedly!")
 	}
 }
 
@@ -62,7 +89,7 @@ func TestCheckPrefix(t *testing.T) {
 
 	t.Logf("Running check command p: %s w: %t i: %s", "foobar", false, "foo,6")
 
-	errCode := Check("foobar", 0, false, "csv", strings.NewReader("foo,6"))
+	errCode := Check("foobar", 0, false, "csv", false, strings.NewReader("foo,6"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
@@ -84,7 +111,7 @@ func TestCheckSlack(t *testing.T) {
 
 	t.Logf("Running check command p: %s w: %t i: %s", "pageweight", false, "gzippedjs,16")
 
-	errCode := Check("pageweight", slack, false, "csv", strings.NewReader("gzippedjs,16"))
+	errCode := Check("pageweight", slack, false, "csv", false, strings.NewReader("gzippedjs,16"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
@@ -105,7 +132,7 @@ func TestCheckExcuse(t *testing.T) {
 
 	t.Logf("Running check command p: %s w: %t i: %s", "foobar", false, "foo,6")
 
-	errCode := Check("foobar", 0, false, "csv", strings.NewReader("foo,6"))
+	errCode := Check("foobar", 0, false, "csv", false, strings.NewReader("foo,6"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
@@ -117,7 +144,7 @@ func TestCheckExcuse(t *testing.T) {
 
 	t.Logf("Running check command p: %s w: %t i: %s", "barfoo", false, "foo,7")
 
-	errCode = Check("barfoo", 0, false, "csv", strings.NewReader("foo,7"))
+	errCode = Check("barfoo", 0, false, "csv", false, strings.NewReader("foo,7"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
@@ -138,7 +165,7 @@ func TestCheckWithCheckstyleInput(t *testing.T) {
 
 	t.Logf("Running check command p: %s w: %t i: %s", "jshint", true, checkStyleFile)
 	
-	errCode := Check("jshint", 0, true, "checkstyle", checkStyleFile)
+	errCode := Check("jshint", 0, true, "checkstyle", false, checkStyleFile)
 
 	if errCode != 0 {
 		t.Fatalf("Check command failed! Error code: %d", errCode)
@@ -146,7 +173,7 @@ func TestCheckWithCheckstyleInput(t *testing.T) {
 
 	t.Logf("Running check command p: %s w: %t i: %s", "jshint", false, "errors,951")
 
-	errCode = Check("jshint", 0, false, "csv", strings.NewReader("errors,951"))
+	errCode = Check("jshint", 0, false, "csv", false, strings.NewReader("errors,951"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
@@ -174,7 +201,7 @@ func runCheckP(t *testing.T, prefix string, write bool, input string) {
 func runCheckPS(t *testing.T, prefix string, slack int, write bool, input string) {
 	t.Logf("Running check command p: %s s: %d, w: %t i: %s", prefix, slack, write, input)
 
-	errCode := Check(prefix, slack, write, "csv", strings.NewReader(input))
+	errCode := Check(prefix, slack, write, "csv", false, strings.NewReader(input))
 
 	if errCode != 0 {
 		t.Fatalf("Check command failed! Error code: %d", errCode)
