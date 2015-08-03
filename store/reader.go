@@ -17,7 +17,7 @@ import (
 )
 
 func ParseInputType(input string) InputType {
-	switch(input) {
+	switch input {
 	case "csv":
 		return CSV
 	case "checkstyle":
@@ -63,12 +63,12 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 			if err != nil {
 				return CommitMeasure{}, err
 			}
-			
+
 			measures, err := ParseMeasures(strings.NewReader(strings.Trim(record[3], "\\\"")), CSV)
 			if err != nil {
 				return CommitMeasure{}, err
 			}
-			
+
 			if len(measures) > 0 {
 				return CommitMeasure{CommitHash: strings.Trim(record[0], "'"),
 					Committer: record[1],
@@ -80,7 +80,7 @@ func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
 }
 
 func ParseMeasures(r io.Reader, t InputType) ([]Measure, error) {
-	switch (t) {
+	switch t {
 	case CSV:
 		return ParseMeasuresCSV(r)
 	case Checkstyle:
@@ -138,20 +138,20 @@ func ParseMeasuresCSV(r io.Reader) ([]Measure, error) {
 func ParseMeasuresCheckstyle(r io.Reader) ([]Measure, error) {
 	decoder := xml.NewDecoder(r)
 	errors := 0
-	
+
 	for {
-		t, _ := decoder.Token() 
-		if t == nil { 
-			break 
-		} 
-		switch se := t.(type) { 
-		case xml.StartElement: 
-			if se.Name.Local == "error" { 
+		t, _ := decoder.Token()
+		if t == nil {
+			break
+		}
+		switch se := t.(type) {
+		case xml.StartElement:
+			if se.Name.Local == "error" {
 				errors++
 			}
 		}
 	}
-	
+
 	return []Measure{{Name: "errors", Value: errors, Baseline: errors}}, nil
 }
 
@@ -170,11 +170,6 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 		stored := storedm[i]
 		computed := computedm[j]
 
-		if computed.Baseline > stored.Baseline {			
-			computed.Baseline = stored.Baseline
-			computedm[i].Baseline = stored.Baseline
-		}
-
 		log.INFO.Printf("Checking meaures: %s %s", stored.Name, computed.Name)
 		if stored.Name < computed.Name {
 			log.ERROR.Printf("Missing computed value for stored measure: %s", stored.Name)
@@ -188,6 +183,11 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 			log.WARN.Printf("New measure found: %s", computed.Name)
 			j++
 		} else {
+			if computed.Baseline > stored.Baseline {
+				computed.Baseline = stored.Baseline
+				computedm[j].Baseline = stored.Baseline
+			}
+
 			// Compare the value
 			if computed.Value > (stored.Baseline + slack) {
 				log.ERROR.Printf("Measure rising: %s, delta %d", computed.Name, (computed.Value - stored.Baseline))
@@ -252,7 +252,7 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 			return computedm, errors.New("One or more metrics currently failing.")
 		}
 	}
-	
+
 	computedm = append(computedm, zeroMes...)
 	sort.Sort(ByName(computedm))
 
