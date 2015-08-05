@@ -27,6 +27,15 @@ _measure_,_value_
 
 It then checks the measurements against previous values stored in your git repository, and returns a non-zero exit code if the measures have increased. Otherwise, it stores the measures againt the current commit hash and exits.
 
+> Note: If you're feeding measures via stdin in a terminal window (likely while testing), you'll need to send `^D` to signify the end of input. [See this StackOverflow answer for a longer explanation](http://unix.stackexchange.com/questions/16333/how-to-signal-the-end-of-stdin-input-in-bash)
+>
+> Another option would be to put measures into a file and feed that to `git-ratchet`.
+```
+touch measures.csv
+echo "test,100" > measures.csv
+git ratchet check -v -w < measures.csv
+```
+
 ## How do I check my changes locally?
 
 Run ```git ratchet check``` locally, feeding in the calculated input. This checks the measures against previous values but does not write the new values if they are okay.
