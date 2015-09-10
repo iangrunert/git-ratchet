@@ -160,11 +160,21 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 		return computedm, errors.New("No stored measures to compare against.")
 	}
 
-	failing := make([]string, 0)
+	excuses, err := GetExclusions(prefix, hash)
+
+	if err != nil {
+		return computedm, err
+	}
+
+	log.INFO.Printf("Total excuses %s", excuses)
+
+	failing := make([]*Measure, 0)
 	zeroMes := make([]Measure, 0)
 
 	i := 0
 	j := 0
+
+	exc := 0
 
 	for i < len(storedm) && j < len(computedm) {
 		stored := storedm[i]
@@ -176,7 +186,7 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 			if zeroOnMissing {
 				zeroMes = append(zeroMes, Measure{Name: stored.Name, Value: 0, Baseline: 0})
 			} else {
-				failing = append(failing, stored.Name)
+				failing = append(failing, &stored)
 			}
 			i++
 		} else if computed.Name < stored.Name {
@@ -191,7 +201,28 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 			// Compare the value
 			if computed.Value > (stored.Baseline + slack) {
 				log.ERROR.Printf("Measure rising: %s, delta %d", computed.Name, (computed.Value - stored.Baseline))
-				failing = append(failing, computed.Name)
+
+				if exc < len(excuses) {
+					ex := excuses[exc]
+
+					log.INFO.Printf("Checking excuses: %s %s", ex, computed)
+					if ex < computed.Name {
+						log.WARN.Printf("Exclusion found for not failing measure: %s", ex)
+						exc++
+						failing = append(failing, &computed)
+					} else if computed.Name < ex {
+						log.ERROR.Printf("No exclusion for failing measure: %s", computed.Name)
+						failing = append(failing, &computed)
+					} else {
+						log.WARN.Printf("Exclusion found for failing measure: %s", computed.Name)
+						computed.Baseline = computed.Value
+						computedm[j].Baseline = computed.Value
+						exc++
+					}
+				} else {
+					failing = append(failing, &computed)
+				}
+
 			}
 			i++
 			j++
@@ -204,7 +235,7 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 		if zeroOnMissing {
 			zeroMes = append(zeroMes, Measure{Name: stored.Name, Value: 0, Baseline: 0})
 		} else {
-			failing = append(failing, stored.Name)
+			failing = append(failing, &stored)
 		}
 		i++
 	}
@@ -216,41 +247,7 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 	}
 
 	if len(failing) > 0 {
-		log.INFO.Printf("Checking for excuses")
-
-		exclusions, err := GetExclusions(prefix, hash)
-
-		if err != nil {
-			return computedm, err
-		}
-
-		log.INFO.Printf("Total excuses %s", exclusions)
-
-		i = 0
-		j = 0
-
-		missingexclusion := false
-
-		for i < len(exclusions) && j < len(failing) {
-			ex := exclusions[i]
-			fail := failing[j]
-			log.INFO.Printf("Checking excuses: %s %s", ex, fail)
-			if ex < fail {
-				log.WARN.Printf("Exclusion found for not failing measure: %s", ex)
-				i++
-			} else if fail < ex {
-				log.ERROR.Printf("No exclusion for failing measure: %s", fail)
-				missingexclusion = true
-				j++
-			} else {
-				i++
-				j++
-			}
-		}
-
-		if missingexclusion || j < len(failing) {
-			return computedm, errors.New("One or more metrics currently failing.")
-		}
+		return computedm, errors.New("One or more metrics currently failing.")
 	}
 
 	computedm = append(computedm, zeroMes...)

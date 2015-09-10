@@ -17,7 +17,7 @@ var checkStyleFileErr error
 func TestMain(m *testing.M) {
 	checkStyleFile, checkStyleFileErr = os.Open("./testdata/output.xml")
 
-	os.Exit(m.Run()) 
+	os.Exit(m.Run())
 }
 
 func TestCheck(t *testing.T) {
@@ -25,7 +25,7 @@ func TestCheck(t *testing.T) {
 		log.SetLogThreshold(log.LevelInfo)
 		log.SetStdoutThreshold(log.LevelInfo)
 	}
-	
+
 	createEmptyGitRepo(t)
 
 	runCheck(t, false, "")
@@ -53,7 +53,7 @@ func TestZeroMissing(t *testing.T) {
 		log.SetLogThreshold(log.LevelInfo)
 		log.SetStdoutThreshold(log.LevelInfo)
 	}
-	
+
 	createEmptyGitRepo(t)
 
 	runCheck(t, true, "foo,5")
@@ -124,7 +124,7 @@ func TestCheckExcuse(t *testing.T) {
 		log.SetStdoutThreshold(log.LevelInfo)
 	}
 
-	createEmptyGitRepo(t)
+	repo := createEmptyGitRepo(t)
 
 	runCheckP(t, "foobar", true, "foo,5")
 	// Increase on "barfoo" prefix is okay
@@ -149,6 +149,16 @@ func TestCheckExcuse(t *testing.T) {
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
 	}
+
+	runCommand(t, repo, exec.Command("git", "add", createFile(t, repo, "test2.txt").Name()))
+	runCommand(t, repo, exec.Command("git", "commit", "-m", "Third Commit"))
+
+	runCheckP(t, "foobar", true, "foo,6")
+
+	runCommand(t, repo, exec.Command("git", "add", createFile(t, repo, "test3.txt").Name()))
+	runCommand(t, repo, exec.Command("git", "commit", "-m", "Fourth Commit"))
+
+	runCheckP(t, "foobar", true, "foo,6")
 }
 
 func TestCheckWithCheckstyleInput(t *testing.T) {
@@ -156,7 +166,7 @@ func TestCheckWithCheckstyleInput(t *testing.T) {
 		log.SetLogThreshold(log.LevelInfo)
 		log.SetStdoutThreshold(log.LevelInfo)
 	}
-	
+
 	if checkStyleFileErr != nil {
 		t.Fatalf("Failure opening test data", checkStyleFileErr)
 	}
@@ -164,7 +174,7 @@ func TestCheckWithCheckstyleInput(t *testing.T) {
 	createEmptyGitRepo(t)
 
 	t.Logf("Running check command p: %s w: %t i: %s", "jshint", true, checkStyleFile)
-	
+
 	errCode := Check("jshint", 0, true, "checkstyle", false, checkStyleFile)
 
 	if errCode != 0 {
