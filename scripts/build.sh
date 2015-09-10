@@ -29,3 +29,5 @@ gox \
 echo
 echo "==> Results:"
 ls -hl dist/*
+
+ghr --username iangrunert --token $GITHUB_TOKEN --replace --prerelease --debug $VERSION dist/
