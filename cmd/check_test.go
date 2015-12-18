@@ -143,7 +143,7 @@ func TestCheckSlackPercent(t *testing.T) {
 
 	t.Logf("Running check command p: %s w: %t i: %s", "pageweight", false, "gzippedjs,160")
 
-	errCode = Check("pageweight", slack, usePercents, false, "csv", false, strings.NewReader("gzippedjs,160"))
+	errCode = Check("pageweight", slack, usePercents, false, "csv", false, strings.NewReader("gzippedjs,121"))
 
 	if errCode != 50 {
 		t.Fatalf("Check command passed unexpectedly!")
