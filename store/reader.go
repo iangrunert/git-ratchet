@@ -201,11 +201,11 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 			delta := computed.Value - stored.Baseline
 			deltaPercent := 100.0
 			if stored.Baseline > 0 {
-    			deltaPercent = float64(delta) * 100.0 / float64(stored.Baseline)
+				deltaPercent = float64(delta) * 100.0 / float64(stored.Baseline)
 			}
 
 			// Compare the value
-			if deltaIsUnacceptable(delta, deltaPercent, slack, usePercents) { 
+			if deltaIsUnacceptable(delta, deltaPercent, slack, usePercents) {
 				log.ERROR.Printf("Measure rising: %s, delta %d (%g percents)", computed.Name, delta, deltaPercent)
 
 				if exc < len(excuses) {
@@ -263,7 +263,7 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 }
 
 func deltaIsUnacceptable(delta int, deltaPercent float64, slack float64, usePercents bool) bool {
-	if (usePercents) {
+	if usePercents {
 		return deltaPercent > slack
 	} else {
 		return float64(delta) > slack

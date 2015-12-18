@@ -105,7 +105,7 @@ func TestCheckSlackValue(t *testing.T) {
 	createEmptyGitRepo(t)
 
 	slack := 5.0
-	usePercents:=false
+	usePercents := false
 
 	runCheckPS(t, "pageweight", slack, usePercents, true, "gzippedjs,10")
 	runCheckPS(t, "pageweight", slack, usePercents, false, "gzippedjs,15")
@@ -128,7 +128,7 @@ func TestCheckSlackPercent(t *testing.T) {
 	createEmptyGitRepo(t)
 
 	slack := 20.0
-	usePercents:=true
+	usePercents := true
 
 	runCheckPS(t, "pageweight", slack, usePercents, true, "gzippedjs,100")
 	runCheckPS(t, "pageweight", slack, usePercents, false, "gzippedjs,101")

@@ -1,11 +1,11 @@
 package main
 
 import (
+	"fmt"
 	ratchet "github.com/iangrunert/git-ratchet/cmd"
 	"github.com/spf13/cobra"
 	log "github.com/spf13/jwalterweatherman"
 	"os"
-	"fmt"
 )
 
 var GitTag string // Will be passed to the compiler by scripts/build.sh
@@ -38,7 +38,7 @@ The most recent stored values are found by walking up the commit graph and looki
 				log.SetLogThreshold(log.LevelInfo)
 				log.SetStdoutThreshold(log.LevelInfo)
 			}
-						
+
 			err := ratchet.Check(prefix, slack, usePercents, write, inputType, zeroOnMissing, os.Stdin)
 			if err != 0 {
 				os.Exit(err)
