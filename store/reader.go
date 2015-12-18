@@ -155,7 +155,7 @@ func ParseMeasuresCheckstyle(r io.Reader) ([]Measure, error) {
 	return []Measure{{Name: "errors", Value: errors, Baseline: errors}}, nil
 }
 
-func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []Measure, slack int, zeroOnMissing bool) ([]Measure, error) {
+func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []Measure, slack float64, usePercents bool, zeroOnMissing bool) ([]Measure, error) {
 	if len(storedm) == 0 {
 		return computedm, errors.New("No stored measures to compare against.")
 	}
@@ -198,9 +198,15 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 				computedm[j].Baseline = stored.Baseline
 			}
 
+			delta := computed.Value - stored.Baseline
+			deltaPercent := 100.0
+			if stored.Baseline > 0 {
+    			deltaPercent = float64(delta) * 100.0 / float64(stored.Baseline)
+			}
+
 			// Compare the value
-			if computed.Value > (stored.Baseline + slack) {
-				log.ERROR.Printf("Measure rising: %s, delta %d", computed.Name, (computed.Value - stored.Baseline))
+			if deltaIsUnacceptable(delta, deltaPercent, slack, usePercents) { 
+				log.ERROR.Printf("Measure rising: %s, delta %d (%g percents)", computed.Name, delta, deltaPercent)
 
 				if exc < len(excuses) {
 					ex := excuses[exc]
@@ -254,6 +260,14 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 	sort.Sort(ByName(computedm))
 
 	return computedm, nil
+}
+
+func deltaIsUnacceptable(delta int, deltaPercent float64, slack float64, usePercents bool) bool {
+	if (usePercents) {
+		return deltaPercent > slack
+	} else {
+		return float64(delta) > slack
+	}
 }
 
 func GetExclusions(prefix string, hash string) ([]string, error) {

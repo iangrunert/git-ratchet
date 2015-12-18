@@ -7,7 +7,7 @@ import (
 	"io"
 )
 
-func Check(prefix string, slack int, write bool, inputType string, zeroOnMissing bool, input io.Reader) int {
+func Check(prefix string, slack float64, usePercents bool, write bool, inputType string, zeroOnMissing bool, input io.Reader) int {
 	// Parse the measures from stdin
 	log.INFO.Println("Parsing measures from stdin")
 	passedMeasures, err := store.ParseMeasures(input, store.ParseInputType(inputType))
@@ -48,7 +48,7 @@ func Check(prefix string, slack int, write bool, inputType string, zeroOnMissing
 		return 40
 	} else {
 		log.INFO.Println("Checking passed measure against stored value")
-		finalMeasures, compareErr := store.CompareMeasures(prefix, commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures, slack, zeroOnMissing)
+		finalMeasures, compareErr := store.CompareMeasures(prefix, commitmeasure.CommitHash, commitmeasure.Measures, passedMeasures, slack, usePercents, zeroOnMissing)
 
 		if write {
 			log.INFO.Println("Writing measure values.")
