@@ -1,11 +1,11 @@
 package main
 
 import (
+	"fmt"
 	ratchet "github.com/iangrunert/git-ratchet/cmd"
 	"github.com/spf13/cobra"
 	log "github.com/spf13/jwalterweatherman"
 	"os"
-	"fmt"
 )
 
 var GitTag string // Will be passed to the compiler by scripts/build.sh
@@ -15,7 +15,8 @@ func main() {
 	var verbose bool
 	var zeroOnMissing bool
 	var prefix string
-	var slack int
+	var slack float64
+	var usePercents bool
 	var inputType string
 
 	var versionCmd = &cobra.Command{
@@ -37,8 +38,8 @@ The most recent stored values are found by walking up the commit graph and looki
 				log.SetLogThreshold(log.LevelInfo)
 				log.SetStdoutThreshold(log.LevelInfo)
 			}
-						
-			err := ratchet.Check(prefix, slack, write, inputType, zeroOnMissing, os.Stdin)
+
+			err := ratchet.Check(prefix, slack, usePercents, write, inputType, zeroOnMissing, os.Stdin)
 			if err != 0 {
 				os.Exit(err)
 			}
@@ -46,7 +47,8 @@ The most recent stored values are found by walking up the commit graph and looki
 	}
 
 	checkCmd.Flags().BoolVarP(&write, "write", "w", false, "write values if no increase is detected. only use on your CI server.")
-	checkCmd.Flags().IntVarP(&slack, "slack", "s", 0, "slack value, increase within the range of the slack is acceptable.")
+	checkCmd.Flags().Float64VarP(&slack, "slack", "s", 0, "slack value, increase within the range of the slack is acceptable.")
+	checkCmd.Flags().BoolVarP(&usePercents, "usePercents", "sp", false, "slack value is given in percents.")
 	checkCmd.Flags().StringVarP(&inputType, "inputType", "i", "csv", "input type. csv and checkstyle available.")
 	checkCmd.Flags().BoolVarP(&zeroOnMissing, "zero-on-missing", "z", false, "set measure values to zero on missing..")
 
