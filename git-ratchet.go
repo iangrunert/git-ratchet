@@ -48,7 +48,7 @@ The most recent stored values are found by walking up the commit graph and looki
 
 	checkCmd.Flags().BoolVarP(&write, "write", "w", false, "write values if no increase is detected. only use on your CI server.")
 	checkCmd.Flags().Float64VarP(&slack, "slack", "s", 0, "slack value, increase within the range of the slack is acceptable.")
-	checkCmd.Flags().BoolVarP(&usePercents, "usePercents", "sp", false, "slack value is given in percents.")
+	checkCmd.Flags().BoolVarP(&usePercents, "usePercents", "r", false, "slack value is specified in relative percentage.")
 	checkCmd.Flags().StringVarP(&inputType, "inputType", "i", "csv", "input type. csv and checkstyle available.")
 	checkCmd.Flags().BoolVarP(&zeroOnMissing, "zero-on-missing", "z", false, "set measure values to zero on missing..")
 
