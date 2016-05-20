@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+	"path/filepath"
 )
 
 func GitLog(ref string, commitrange string, format string) *exec.Cmd {
@@ -48,7 +49,7 @@ func WriteNotes(writef func(io.Writer) error, ref string) error {
 		return fmt.Errorf("Error closing .git-ratchet-note %s", err)
 	}
 
-	writenotes := exec.Command("git", "notes", "--ref="+ref, "add", "-f", "-F", notepath)
+	writenotes := exec.Command("git", "notes", "--ref="+ref, "add", "-f", "-F", filepath.Abs(notepath))
 
 	log.INFO.Println(strings.Join(writenotes.Args, " "))
 
