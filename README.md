@@ -10,7 +10,7 @@ Perhaps you are working on a large legacy Javascript codebase, which you would l
 
 Or perhaps you are attempting to perform a library upgrade, but there are a large number of usages of a deprecated method call that need to be refactored. The refactoring isn't straight-forward and can't be easily automated. You could set up a ratcheted build measuring the number of usages of the deprecated method, and tackle them with small improvements over time.
 
-## How do I do I get started?
+## How do I get started?
 
 Download the [latest official release](https://github.com/iangrunert/git-ratchet/releases/latest) for your platform.
 
