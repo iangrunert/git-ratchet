@@ -180,7 +180,7 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 		stored := storedm[i]
 		computed := computedm[j]
 
-		log.INFO.Printf("Checking meaures: %s %s", stored.Name, computed.Name)
+		log.INFO.Printf("Checking measures: %s %s", stored.Name, computed.Name)
 		if stored.Name < computed.Name {
 			log.ERROR.Printf("Missing computed value for stored measure: %s", stored.Name)
 			if zeroOnMissing {
