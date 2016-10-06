@@ -57,3 +57,33 @@ Run ```git ratchet excuse -n "_measure_" -e "It's 2am and the servers are on fir
 ## Where is the data stored?
 
 The data is stored inside git-notes. This means this data follows around your repository, and can keep track of history, without having to pollute your working directory or commit graph.
+
+> Note: When doing a fresh clone (which is typical when using this in a CI environment), you'll need to make sure you pull down the git notes as well. A default clone *will not* do this. 
+```
+> git fetch origin refs/notes/*:refs/notes/*
+```
+
+**For example**:
+
+Running the following will return a list of commits starting at `HEAD` which include any `git-ratchet-1-$SUFFIX_NAME` notes that have been added by `git-ratchet`.
+> Note: $SUFFIX_NAME is likely `master` unless you passed in a suffix (with the `-p` flag)
+
+```
+ git --no-pager log --notes=git-ratchet-1-master HEAD
+
+ commit c3d1bfe82a85d99f3e7ab8b00d435c4786f2eb5e
+ Author: Your Name <yourname@email.com>
+ Date:   Fri Jul 31 17:37:52 2015 -0500
+
+    Add ratchet script.
+
+ Notes (git-ratchet-1-master):
+    errors,0,0
+    warnings,0,0
+
+ commit 6d4044923fbf3c35664797f56f4f54534decc872
+ Author: Your Name <yourname@email.com>
+ Date:   Wed Jul 29 15:33:27 2015 -0500
+
+    Initial commit
+```
