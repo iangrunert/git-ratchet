@@ -28,7 +28,7 @@ func ParseInputType(input string) InputType {
 }
 
 func CommitMeasureCommand(prefix string) *exec.Cmd {
-	return GitLog("git-ratchet-1-"+prefix, "HEAD", `%H,%ae,%at,"%N",`)
+	return GitLog("git-ratchet-1-"+prefix, "HEAD", `%H,%ae,%at,'%N',`)
 }
 
 func CommitMeasures(gitlog *exec.Cmd) (func() (CommitMeasure, error), error) {
