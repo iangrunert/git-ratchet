@@ -75,6 +75,42 @@ func TestZeroMissing(t *testing.T) {
 	}
 }
 
+// Regression test for https://github.com/iangrunert/git-ratchet/issues/22
+func TestAddRemove(t *testing.T) {
+	if testing.Verbose() {
+		log.SetLogThreshold(log.LevelInfo)
+		log.SetStdoutThreshold(log.LevelInfo)
+	}
+
+	createEmptyGitRepo(t)
+
+	runCheck(t, true, "measure-A,5")
+
+	t.Logf("Running check command with added measure w: %t z: %t i: %s", false, false, "measure-A,5\nmeasure-B,4")
+
+	errCode := Check("", 0, false, true, "csv", false, strings.NewReader("measure-A,5\nmeasure-B,4"))
+
+	if errCode != 0 {
+		t.Fatalf("Check command failed unexpectedly!")
+	}
+
+	t.Logf("Running check command with added and removed measures w: %t z: %t i: %s", false, false, "measure-B,4\nmeasure-C,3")
+
+	errCode = Check("", 0, false, true, "csv", false, strings.NewReader("measure-B,4\nmeasure-C,3"))
+
+	if errCode != 50 {
+		t.Fatalf("Check command passed unexpectedly!")
+	}
+
+	t.Logf("Running check command with added and removed measures w: %t z: %t i: %s", false, true, "measure-B,4\nmeasure-C,3")
+
+	errCode = Check("", 0, false, true, "csv", true, strings.NewReader("measure-B,4\nmeasure-C,3"))
+
+	if errCode != 0 {
+		t.Fatalf("Check command failed unexpectedly!")
+	}
+}
+
 func TestCheckPrefix(t *testing.T) {
 	if testing.Verbose() {
 		log.SetLogThreshold(log.LevelInfo)

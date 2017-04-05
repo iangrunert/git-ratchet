@@ -247,7 +247,7 @@ func CompareMeasures(prefix string, hash string, storedm []Measure, computedm []
 	}
 
 	for j < len(computedm) {
-		computed := computedm[i]
+		computed := computedm[j]
 		log.WARN.Printf("New measure found: %s", computed.Name)
 		j++
 	}
