@@ -21,7 +21,7 @@ XC_OS=${XC_OS:-linux darwin windows}
 gox \
     -os="${XC_OS}" \
     -arch="${XC_ARCH}" \
-    -ldflags "-X main.GitTag ${VERSION}" \
+    -ldflags "-X main.GitTag=${VERSION}" \
     -output "dist/{{.OS}}_{{.Arch}}_{{.Dir}}" \
     ./...
 
